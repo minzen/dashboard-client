@@ -5,3 +5,5 @@ Based on:
 CouchDB                 http://couchdb.apache.org/
 Express Node.js         https://expressjs.com/
 Raspberry Pi with Ubuntu Mate
+
+Documentation can now be found in the docs folder...
