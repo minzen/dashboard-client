@@ -1,9 +1,13 @@
-# eveDashboard
-Javascript Server application to display customizable widgets.
+# dashboard-client
+Javascript Client application to display customizable widgets.
 
-Based on:
-CouchDB                 http://couchdb.apache.org/
-Express Node.js         https://expressjs.com/
-Raspberry Pi with Ubuntu Mate
+Node: 7.2.1
+npm: 4.0.3
 
-Documentation can now be found in the docs folder...
+Install AngularCLI globally via npm:
+
+```bash
+npm install angular-cli -g
+```
+
+
