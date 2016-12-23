@@ -33,7 +33,7 @@ class Server {
         this.port = process.env.PORT || 5000;
 
         // root path is under ../../target
-        this.root = path.join(path.resolve(__dirname, '../../target'));
+        this.root = path.join(path.resolve(__dirname, '../../dist/client'));
 
     }
 
@@ -59,7 +59,7 @@ class Server {
         // Get socket.io handle
         this.io = socketIo(this.server);
     }
-    
+
     // Start HTTP server listening
     private listen(): void {
         //listen on provided ports
@@ -72,7 +72,7 @@ class Server {
 
         //start listening on port
         this.server.on("listening", () => {
-            console.log('==> Listening on port %s. Open up http://localhost:%s/ in your browser.', this.port, this.port);            
+            console.log('==> Listening on port %s. Open up http://localhost:%s/ in your browser.', this.port, this.port);
         });
 
     }
