@@ -60,6 +60,12 @@ class Server {
     private sockets(): void {
         // Get socket.io handle
         this.io = socketIo(this.server);
+        this.io.on('connection', (socket:SocketIO.Socket) => {
+            setInterval(() => {
+                let date:Date = new Date();
+                socket.emit('message', date);
+            }, 1000);
+        });
     }
 
     // Start HTTP server listening
