@@ -4,17 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TimeWidgetComponent } from './time-widget/time-widget.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimeWidgetComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
