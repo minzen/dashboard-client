@@ -43,7 +43,9 @@ class Server {
         router = express.Router();
 
         // Static assets
-        this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
+       //  this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
+
+       this.app.use(express.static(this.root));
 
         // Set router to serve index.html (e.g. single page app)
         router.get('/', (request: express.Request, result: express.Response) => {
