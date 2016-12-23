@@ -22,7 +22,7 @@ export class TimeWidgetComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.connection.unsubscribe();
+    //this.connection.unsubscribe();
   }
 
 }

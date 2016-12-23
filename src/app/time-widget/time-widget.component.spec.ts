@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { TimeWidgetComponent } from './time-widget.component';
+import { MessageService } from '../message.service';
 
 describe('TimeWidgetComponent', () => {
   let component: TimeWidgetComponent;
@@ -11,7 +12,8 @@ describe('TimeWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimeWidgetComponent ]
+      declarations: [ TimeWidgetComponent ],
+      providers: [ MessageService ]
     })
     .compileComponents();
   }));
