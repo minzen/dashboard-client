@@ -88,4 +88,3 @@ class Server {
 
 // Bootstrap the server
 let server = Server.bootstrap();
-export = server.app;
