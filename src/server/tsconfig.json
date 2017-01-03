@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
     "declaration": false,
+    "alwaysStrict": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
