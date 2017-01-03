@@ -1,17 +1,31 @@
+/**
+ *
+ */
+
+'use strict'
+
 import * as express from "express";
 import * as http from "http";
 import * as serveStatic from "serve-static";
 import * as path from "path";
 import * as socketIo from "socket.io";
 
+import DynamicModuleLoader from './DynamicModuleLoader';
+import PluginRegistry from './PluginRegistry';
+import WidgetConstructor from './widget/WidgetConstructor';
+import WidgetInterface from './widget/WidgetInterface';
+
 declare var process, __dirname;
 
 class Server {
+
     public app: any;
     private server: any;
     private io: any;
     private root: string;
     private port: number;
+
+    private pluginRegistry: PluginRegistry = PluginRegistry.getInstance();
 
     // Bootstrap the application.
     public static bootstrap(): Server {
@@ -19,12 +33,24 @@ class Server {
     }
 
     constructor() {
+        console.log('Starting Dashboard Server ...');
+
+        this.loadWidgetPlugins();
         this.app = express();
         this.config();
         this.routes();
         this.server = http.createServer(this.app);
         this.sockets();
         this.listen();
+    }
+
+    /**
+     * load all widgets from the plugin directory.
+     */
+    private loadWidgetPlugins(): void {
+        let dynamicModuleLoader = new DynamicModuleLoader();
+        dynamicModuleLoader.addDirectory('plugins');
+        dynamicModuleLoader.load();
     }
 
     // Configuration
@@ -43,9 +69,9 @@ class Server {
         router = express.Router();
 
         // Static assets
-       //  this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
+        //  this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
 
-       this.app.use(express.static(this.root));
+        this.app.use(express.static(this.root));
 
         // Set router to serve index.html (e.g. single page app)
         router.get('/', (request: express.Request, result: express.Response) => {
@@ -58,14 +84,22 @@ class Server {
 
     // Configure sockets
     private sockets(): void {
-        // Get socket.io handle
-        this.io = socketIo(this.server);
-        this.io.on('connection', (socket:SocketIO.Socket) => {
-            setInterval(() => {
-                let date:Date = new Date();
-                socket.emit('message', date);
-            }, 1000);
-        });
+        // TODO: read plugin type from dashboard configuration and create instances dynamically
+        let constructor: WidgetConstructor = this.pluginRegistry.get('clock');
+
+        if (constructor != null) {
+            let widget: WidgetInterface = new constructor({});
+
+            // Get socket.io handle
+            this.io = socketIo(this.server);
+            this.io.on('connection', (socket: SocketIO.Socket) => {
+                setInterval(() => {
+                    socket.emit('message', widget.onUpdate());
+                }, constructor.metadata.updateInterval);
+            });
+        } else {
+            console.log('constructor does not exist');
+        }
     }
 
     // Start HTTP server listening

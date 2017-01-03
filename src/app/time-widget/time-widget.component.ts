@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../message.service';
+import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';
 
 @Component({
   selector: 'app-time-widget',
@@ -12,12 +13,12 @@ export class TimeWidgetComponent implements OnInit, OnDestroy {
   connection: Subscription;
 
   constructor(private messageService : MessageService) {
-    
+
   }
 
   ngOnInit() {
-    this.connection = this.messageService.getMessages().subscribe((message:Date) => {
-      this.message = message;
+    this.connection = this.messageService.getMessages().subscribe((message: ClockWidgetUpdate) => {
+      this.message = message.time;
     });
   }
 
