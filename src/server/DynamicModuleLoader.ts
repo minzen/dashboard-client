@@ -5,10 +5,11 @@
  * @since 0.0.1
  */
 
+import * as fs from 'fs';
+import { join } from 'path';
+
 declare function require(name: string);
 declare var __dirname: string;
-
-import fs = require("fs");
 
 export default class DynamicModuleLoader {
 
@@ -25,11 +26,11 @@ export default class DynamicModuleLoader {
     }
 
     private loadModule(directory: string): void {
-        let normalizedPath = require("path").join(__dirname, directory);
-        require("fs").readdirSync(normalizedPath).forEach((file) => {
-            if (this.endsWith(file, '.js')) {
-                console.log("Loading module " + normalizedPath + "\\" + file);
-                require("./" + directory + "/" + file);
+        let normalizedPath = join(__dirname, directory);
+        fs.readdirSync(normalizedPath).forEach((file) => {
+            if (file.endsWith('.js')) {
+                console.log('Loading module'  + normalizedPath + '\\' + file);
+                require('./' + directory + '/' + file);
             }
         });
     }
