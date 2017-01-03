@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 import Widget from '../widget/WidgetMetadata';
 import * as Dashboard from '../widget/AbstractWidget';
 import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';

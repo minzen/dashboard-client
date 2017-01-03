@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 import WidgetMetaDataInterface from './WidgetMetaDataInterface';
 
 interface WidgetInterface {

@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 export default class HashMap<V> {
 
     private map: {[designation: string] : V};

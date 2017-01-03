@@ -2,8 +2,6 @@
  *
  */
 
-'use strict'
-
 import * as express from "express";
 import * as http from "http";
 import * as serveStatic from "serve-static";

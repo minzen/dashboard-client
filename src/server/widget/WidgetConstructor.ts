@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 import WidgetInterface from './WidgetInterface';
 import WidgetMetaDataInterface from './WidgetMetaDataInterface';
 

@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 import * as Dashboard from './AbstractWidget';
 import WidgetMetaDataInterface from './WidgetMetaDataInterface';
 import WidgetConstructor from './WidgetConstructor';

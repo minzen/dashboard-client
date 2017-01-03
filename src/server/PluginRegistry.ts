@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 import WidgetConstructor from './widget/WidgetConstructor';
 import HashMap from '../common/HashMap';
 

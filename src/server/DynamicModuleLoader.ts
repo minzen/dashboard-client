@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 declare function require(name: string);
 declare var __dirname: string;
 

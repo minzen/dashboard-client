@@ -5,8 +5,6 @@
  * @since 0.0.1
  */
 
-'use strict'
-
 class DecoratorIncompatibilityException {
 
     private message: string;
