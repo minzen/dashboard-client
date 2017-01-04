@@ -13,10 +13,6 @@ export default class PluginRegistry {
     private static instance: PluginRegistry = null;
     private registredWidgets: HashMap<WidgetConstructor>;
 
-    private constructor() {
-        this.registredWidgets = new HashMap<WidgetConstructor>();
-    }
-
     public static getInstance(): PluginRegistry {
         if (!PluginRegistry.instance) {
             PluginRegistry.instance = new PluginRegistry();
@@ -32,4 +28,7 @@ export default class PluginRegistry {
         return this.registredWidgets.get(designation);
     }
 
+    private constructor() {
+        this.registredWidgets = new HashMap<WidgetConstructor>();
+    }
 }
