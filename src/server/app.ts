@@ -81,7 +81,7 @@ class Server {
     }
 
     private connectWidgets(socket: SocketIO.Socket, widgets: Array<string>) {
-        widgets.forEach(function(widgetDesignation: string) {
+        widgets.forEach((widgetDesignation: string) => {
             let constructor: WidgetConstructor = this.pluginRegistry.get(widgetDesignation);
             if (constructor != null) {
                 let widget: WidgetInterface = new constructor({});
