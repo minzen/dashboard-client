@@ -87,6 +87,7 @@ class Server {
 
         if (constructor != null) {
             let widget: WidgetInterface = new constructor({});
+            console.log(widget.onUpdate());
 
             // Get socket.io handle
             this.io = socketIo(this.server);
@@ -97,6 +98,20 @@ class Server {
             });
         } else {
             console.log('constructor does not exist');
+        }
+
+        /**
+         * Test new widget
+         */
+        let constructor2: WidgetConstructor = this.pluginRegistry.get('greetings');
+
+        if (constructor2 != null) {
+            let greetingsWidget: WidgetInterface = new constructor2({});
+
+            console.log(greetingsWidget.onUpdate());
+            console.log(greetingsWidget.onUpdate());
+            console.log(greetingsWidget.onUpdate());
+            console.log(greetingsWidget.onUpdate());
         }
     }
 
