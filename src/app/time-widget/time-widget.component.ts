@@ -6,7 +6,7 @@ import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';
 @Component({
   selector: 'app-time-widget',
   templateUrl: './time-widget.component.html',
-  styleUrls: ['./time-widget.component.css']
+  styleUrls: ['./time-widget.component.scss']
 })
 export class TimeWidgetComponent implements OnInit, OnDestroy {
   message: Date;
