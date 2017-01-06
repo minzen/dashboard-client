@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TimeWidgetComponent } from './time-widget/time-widget.component';
 import { MessageService } from './message.service';
+import { NewsWidgetComponent } from './news-widget/news-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimeWidgetComponent
+    TimeWidgetComponent,
+    NewsWidgetComponent
   ],
   imports: [
     BrowserModule,

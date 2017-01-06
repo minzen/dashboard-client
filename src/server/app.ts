@@ -80,39 +80,28 @@ class Server {
         this.app.use('*', router);
     }
 
+    private connectWidgets(socket: SocketIO.Socket, widgets: Array<string>) {
+        widgets.forEach(function(widgetDesignation: string) {
+            let constructor: WidgetConstructor = this.pluginRegistry.get(widgetDesignation);
+            if (constructor != null) {
+                let widget: WidgetInterface = new constructor({});
+                console.log(widget.onUpdate());
+                setInterval(() => {
+                    socket.emit(constructor.metadata.designation, widget.onUpdate());
+                }, constructor.metadata.updateInterval);
+            } else {
+                console.log('constructor does not exist');
+            }
+        });
+    }
+
     // Configure sockets
     private sockets(): void {
-        // TODO: read plugin type from dashboard configuration and create instances dynamically
-        let constructor: WidgetConstructor = this.pluginRegistry.get('clock');
-
-        if (constructor != null) {
-            let widget: WidgetInterface = new constructor({});
-            console.log(widget.onUpdate());
-
-            // Get socket.io handle
-            this.io = socketIo(this.server);
-            this.io.on('connection', (socket: SocketIO.Socket) => {
-                setInterval(() => {
-                    socket.emit('message', widget.onUpdate());
-                }, constructor.metadata.updateInterval);
-            });
-        } else {
-            console.log('constructor does not exist');
-        }
-
-        /**
-         * Test new widget
-         */
-        let constructor2: WidgetConstructor = this.pluginRegistry.get('greetings');
-
-        if (constructor2 != null) {
-            let greetingsWidget: WidgetInterface = new constructor2({});
-
-            console.log(greetingsWidget.onUpdate());
-            console.log(greetingsWidget.onUpdate());
-            console.log(greetingsWidget.onUpdate());
-            console.log(greetingsWidget.onUpdate());
-        }
+        // Get socket.io handle
+        this.io = socketIo(this.server);
+        this.io.on('connection', (socket: SocketIO.Socket) => {
+            this.connectWidgets(socket, ['news', 'clock']);
+        });
     }
 
     // Start HTTP server listening
