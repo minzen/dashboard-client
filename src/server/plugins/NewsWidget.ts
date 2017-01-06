@@ -7,15 +7,15 @@
 
 import Widget from '../widget/WidgetMetadata';
 import * as Dashboard from '../widget/AbstractWidget';
-import GreetingsWidgetUpdate from '../../common/GreetingsWidgetUpdate';
+import NewsWidgetUpdate from '../../common/NewsWidgetUpdate';
 
 @Widget({
     author: 'Johannes Diemke <johannes.diemke@eventim.de>',
-    designation: 'greetings',
+    designation: 'news',
     version: '0.0.1',
     updateInterval: 2500
 })
-class GreetingsWidget extends Dashboard.AbstractWidget {
+class NewsWidget extends Dashboard.AbstractWidget {
 
     private static greetings: Array<string> = [
         'Good morning!',
@@ -23,10 +23,10 @@ class GreetingsWidget extends Dashboard.AbstractWidget {
         'Damn, I\'m good!'
     ];
 
-    public onUpdate(): GreetingsWidgetUpdate {
-        let index: number = Math.floor(Math.random() * GreetingsWidget.greetings.length);
-        let selection: string = GreetingsWidget.greetings[index];
-        return new GreetingsWidgetUpdate(selection);
+    public onUpdate(): NewsWidgetUpdate {
+        let index: number = Math.floor(Math.random() * NewsWidget.greetings.length);
+        let selection: string = NewsWidget.greetings[index];
+        return new NewsWidgetUpdate(selection);
     }
 
 }
