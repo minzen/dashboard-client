@@ -4,6 +4,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { TimeWidgetComponent} from './time-widget/time-widget.component';
 import { NewsWidgetComponent} from './news-widget/news-widget.component';
+import { HeaderComponent} from './header/header.component';
 import { MessageService } from './message.service';
 
 describe('AppComponent', () => {
