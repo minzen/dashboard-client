@@ -10,6 +10,7 @@ export class MessageService {
     private url: string;
 
     constructor() {
+         this.socket = io(this.url);
     }
 
     public setup(url: string): void {
@@ -26,7 +27,6 @@ export class MessageService {
 
     public observeEvent<T>(eventName: string): Observable<T> {
         let observable = new Observable(observer => {
-            this.socket = io(this.url);
             this.socket.on(eventName, (data) => {
                 observer.next(data);
             });
