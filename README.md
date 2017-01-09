@@ -1,6 +1,6 @@
 # Dashboard
 
-Travis-CI Build-Status:[![Build Status](https://travis-ci.org/marcolindner/dashboard.svg?branch=master)](https://travis-ci.org/marcolindner/dashboard)
+Travis-CI Build-Status: [![Build Status](https://travis-ci.org/marcolindner/dashboard.svg?branch=master)](https://travis-ci.org/marcolindner/dashboard)
 
 #Starten der Angular App
 'ng serve'
