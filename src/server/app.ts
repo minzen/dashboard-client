@@ -1,17 +1,14 @@
 /**
  *
  */
-
 import * as express from "express";
 import * as http from "http";
-import * as serveStatic from "serve-static";
 import * as path from "path";
 import * as socketIo from "socket.io";
-
-import DynamicModuleLoader from './DynamicModuleLoader';
-import PluginRegistry from './PluginRegistry';
-import WidgetConstructor from './widget/WidgetConstructor';
-import WidgetInterface from './widget/WidgetInterface';
+import DynamicModuleLoader from "./DynamicModuleLoader";
+import PluginRegistry from "./PluginRegistry";
+import WidgetConstructor from "./widget/WidgetConstructor";
+import WidgetInterface from "./widget/WidgetInterface";
 
 declare var process, __dirname;
 
@@ -100,7 +97,7 @@ class Server {
         // Get socket.io handle
         this.io = socketIo(this.server);
         this.io.on('connection', (socket: SocketIO.Socket) => {
-            this.connectWidgets(socket, ['news', 'clock']);
+            this.connectWidgets(socket, ['news', 'clock', 'weather']);
         });
     }
 

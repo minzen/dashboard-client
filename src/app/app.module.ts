@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { TimeWidgetComponent } from './time-widget/time-widget.component';
 import { MessageService } from './message.service';
 import { NewsWidgetComponent } from './news-widget/news-widget.component';
+import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimeWidgetComponent,
-    NewsWidgetComponent
+    NewsWidgetComponent,
+    WeatherWidgetComponent
   ],
   imports: [
     BrowserModule,
