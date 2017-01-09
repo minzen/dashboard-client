@@ -9,7 +9,7 @@ import WidgetInterface from './WidgetInterface';
 import WidgetMetaDataInterface from './WidgetMetaDataInterface';
 
 interface WidgetConstructor {
-    new(configuration: any) : WidgetInterface;
+    new() : WidgetInterface;
     metadata: WidgetMetaDataInterface;
 }
 
