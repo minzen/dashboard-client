@@ -1,22 +1,17 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
+import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { TimeWidgetComponent} from './time-widget/time-widget.component';
-import { NewsWidgetComponent} from './news-widget/news-widget.component';
-import { MessageService } from './message.service';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        TimeWidgetComponent,
-        NewsWidgetComponent
+        AppModule,
+        AppComponent
       ],
-      providers: [
-        MessageService
-      ]
+      providers: []
     });
     TestBed.compileComponents();
   });
@@ -28,6 +23,7 @@ describe('AppComponent', () => {
   }));
 
   it(`should have as title 'Eventim Dashboard'`, async(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 6000;
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('Eventim Dashboard');
