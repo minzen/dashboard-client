@@ -4,10 +4,9 @@
  * @author Johannes Diemke <johannes.diemke@eventim.de>
  * @since 0.0.1
  */
-
-import DashboardConfiguration from './DashboardConfiguration';
-import WidgetConfiguration from './WidgetConfiguration';
-import DashboardConfigurationRepository from './DashboardConfigurationRepository';
+import DashboardConfiguration from "./DashboardConfiguration";
+import WidgetConfiguration from "./WidgetConfiguration";
+import DashboardConfigurationRepository from "./DashboardConfigurationRepository";
 
 export default class DashboardConfigurationRepositoryMock implements DashboardConfigurationRepository {
 
@@ -30,9 +29,18 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
 
         let dashboardConfig: DashboardConfiguration = new DashboardConfiguration();
         dashboardConfig.setName('MyDashboard');
+
+        let weatherWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
+        weatherWidgetConfig.setType('weather');
+        weatherWidgetConfig.setConfiguration({
+            appid: '815048e6bb5778bc52d19ee3cb768553',
+            language: 'de',
+            location: 'Bremen,DE'
+        });
+
         dashboardConfig.addWidgetConfiguration(newsWidgetConfig);
         dashboardConfig.addWidgetConfiguration(clockWidgetConfig);
-
+        dashboardConfig.addWidgetConfiguration(weatherWidgetConfig);
         return dashboardConfig;
     }
 

@@ -12,6 +12,7 @@ export class WeatherWidgetComponent implements OnInit {
 
     temperature: string;
     condition: string;
+    iconUrl: string;
     connection: Subscription;
 
     constructor(private messageService: MessageService) {
@@ -21,6 +22,7 @@ export class WeatherWidgetComponent implements OnInit {
         this.connection = this.messageService.observeWeatherWidget().subscribe((message: WeatherWidgetUpdate) => {
             this.temperature = message.temperature;
             this.condition = message.condition;
+            this.iconUrl = message.iconUrl;
         });
     }
 
