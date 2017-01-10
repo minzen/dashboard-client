@@ -11,10 +11,14 @@ import WidgetConstructor from './WidgetConstructor';
 
 export abstract class AbstractWidget implements WidgetInterface {
 
-    private configuration: any;
+    protected configuration: any;
 
-    constructor(configuration: any) {
+    public setConfiguration(configuration: any): void {
         this.configuration = configuration;
+    }
+
+    public getConfiguration(): any {
+        return this.configuration;
     }
 
     public onInit(): void {

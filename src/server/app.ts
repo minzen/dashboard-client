@@ -12,6 +12,10 @@ import DynamicModuleLoader from './DynamicModuleLoader';
 import PluginRegistry from './PluginRegistry';
 import WidgetConstructor from './widget/WidgetConstructor';
 import WidgetInterface from './widget/WidgetInterface';
+import DashboardConfiguration from './configuration/DashboardConfiguration';
+import WidgetConfiguration from './configuration/WidgetConfiguration';
+import DashboardConfigurationRepositoryMock from './configuration/DashboardConfigurationRepositoryMock';
+import DashboardConfigurationRepository from './configuration/DashboardConfigurationRepository';
 
 declare var process, __dirname;
 
@@ -24,6 +28,9 @@ class Server {
     private port: number;
 
     private pluginRegistry: PluginRegistry = PluginRegistry.getInstance();
+
+    // substitute this with a real mongo db bases repository later on
+    private dashboardConfigurationRepository: DashboardConfigurationRepository = new DashboardConfigurationRepositoryMock();
 
     // Bootstrap the application.
     public static bootstrap(): Server {
@@ -80,12 +87,25 @@ class Server {
         this.app.use('*', router);
     }
 
-    private connectWidgets(socket: SocketIO.Socket, widgets: Array<string>) {
-        widgets.forEach((widgetDesignation: string) => {
-            let constructor: WidgetConstructor = this.pluginRegistry.get(widgetDesignation);
+    private connectWidgets(socket: SocketIO.Socket): void {
+        let dashboardConfig: DashboardConfiguration;
+        dashboardConfig = this.dashboardConfigurationRepository.findByName('MyDashboard');
+
+        console.log('Dashboard Configuration: ' + JSON.stringify(dashboardConfig, null, 4));
+
+        let widgets: Array<WidgetConfiguration> = dashboardConfig.getWidgetConfigurations();
+
+        widgets.forEach((widgetConfig: WidgetConfiguration) => {
+            console.log('fetching constructor of type: ' + widgetConfig.getType());
+            let constructor: WidgetConstructor = this.pluginRegistry.get(widgetConfig.getType());
+
             if (constructor != null) {
-                let widget: WidgetInterface = new constructor({});
-                console.log(widget.onUpdate());
+                console.log('constructing widget with configuration: ' + JSON.stringify(widgetConfig.getConfiguration(), null, 4));
+                let widget: WidgetInterface = new constructor();
+
+                widget.setConfiguration(widgetConfig.getConfiguration());
+                widget.onInit();
+
                 setInterval(() => {
                     socket.emit(constructor.metadata.designation, widget.onUpdate());
                 }, constructor.metadata.updateInterval);
@@ -100,7 +120,7 @@ class Server {
         // Get socket.io handle
         this.io = socketIo(this.server);
         this.io.on('connection', (socket: SocketIO.Socket) => {
-            this.connectWidgets(socket, ['news', 'clock']);
+            this.connectWidgets(socket);
         });
     }
 
