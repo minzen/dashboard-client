@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     HttpModule
   ],
   providers: [
+      { provide: LOCALE_ID, useValue: 'de' },
     MessageService
   ],
   bootstrap: [AppComponent]

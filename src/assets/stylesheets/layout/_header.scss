@@ -1,5 +1,4 @@
 .header-wrapper {
-    height: 70px;
     background: -webkit-linear-gradient(left, $darkerblue, $darkblue);
     text-align: justify;
 
@@ -10,6 +9,16 @@
         height: 0;
         font-size:0;
         line-height:0;
+    }
+
+    .clock-wrapper {
+        display: inline-block;
+        color: $white;
+
+        .icon-wrapper {
+            display: inline-block;
+            margin: 0 0.5rem 0 2rem;
+        }
     }
 
     .title-wrapper {
