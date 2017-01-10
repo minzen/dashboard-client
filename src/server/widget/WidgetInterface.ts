@@ -10,6 +10,7 @@ import WidgetMetaDataInterface from './WidgetMetaDataInterface';
 interface WidgetInterface {
     onInit: Function;
     onUpdate: Function;
+    setConfiguration: Function;
 }
 
 export default WidgetInterface;

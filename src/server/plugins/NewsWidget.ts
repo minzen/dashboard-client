@@ -12,19 +12,25 @@ import NewsWidgetUpdate from "../../common/NewsWidgetUpdate";
     author: 'Johannes Diemke <johannes.diemke@eventim.de>',
     designation: 'news',
     version: '0.0.1',
-    updateInterval: 2500
+    updateInterval: 2500,
 })
 class NewsWidget extends Dashboard.AbstractWidget {
 
-    private static greetings: Array<string> = [
-        'Good morning!',
-        'Eat my shorts!',
-        'Damn, I\'m good!'
-    ];
+    private greetings: Array<string>;
+
+    public onInit(): void {
+        let newsWidgetConfiguration: any = this.getConfiguration();
+
+        if (newsWidgetConfiguration.news) {
+            this.greetings = newsWidgetConfiguration.news;
+        } else {
+            this.greetings = ['missing configuration'];
+        }
+    }
 
     public onUpdate(): NewsWidgetUpdate {
-        let index: number = Math.floor(Math.random() * NewsWidget.greetings.length);
-        let selection: string = NewsWidget.greetings[index];
+        let index: number = Math.floor(Math.random() * this.greetings.length);
+        let selection: string = this.greetings[index];
         return new NewsWidgetUpdate(selection);
     }
 
