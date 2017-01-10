@@ -21,17 +21,17 @@ describe('AppComponent', () => {
     TestBed.compileComponents();
   });
 
-  it('should create the app', async(() => {
+  it('should create the app',() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
+  });
 
-  it(`should have as title 'Eventim Dashboard'`, async(() => {
+  it(`should have as title 'Eventim Dashboard'`, () => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('Eventim Dashboard');
-  }));
+  });
 
   it('should render title in a h1 tag', () => {
     let fixture = TestBed.createComponent(AppComponent);
