@@ -1,6 +1,6 @@
 .header-wrapper {
     height: 70px;
-    background-color: $darkblue;
+    background: -webkit-linear-gradient(left, $darkerblue, $darkblue);
     text-align: justify;
 
     &:after {
@@ -17,9 +17,11 @@
         vertical-align: top;
 
         .dashboard-title {
+            display: inline-block;
             font-family: $font-family;
             font-size: $fontsize-xl;
             color: $white;
+            margin: 1rem 0rem 1rem 2rem;
         }
 
     }
