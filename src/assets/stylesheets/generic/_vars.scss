@@ -1,0 +1,42 @@
+// Base (cause no one can survive without black & white)
+$transparent: transparent !default;
+$white: #fff !default;
+$black: #000 !default;
+
+// Colors
+$darkblue: #072747;
+$darkgrey: #333;
+
+
+//Textcolor
+$text-color: $darkgrey !default;
+
+// Breakpoint Definitions (SCSS-List)
+$breakpoints: (
+  '(max-width: 479px)' 'xs',
+  '(min-width: 480px)' 's',
+  '(max-width: 767px)' 'sm',
+  '(min-width: 768px)' 'm',
+  '(min-width: 768px) and (max-width: 999px)' 'm-only',
+  '(max-width: 999px)' 'ml',
+  '(min-width: 1000px)' 'l',
+  '(max-width: 1199px)' 'lxl',
+  '(min-width: 1200px)' 'xl'
+);
+
+// Fonts
+$font-family: 'Roboto', sans-serif !default;
+
+$base-fontsize: 1.6rem !default;
+$base-lineheight: 1.375 !default;
+$base-letter-spacing: -.02rem !default;
+
+$fontsize-xs: 1.2rem !default;
+$fontsize-s: 1.4rem !default;
+$fontsize-m: 1.8rem !default;
+$fontsize-m-alt: 2.1rem !default;
+$fontsize-l: 2.8rem !default;
+$fontsize-l-alt: 2.4rem !default;
+$fontsize-xl: 3.2rem !default;
+$fontsize-xxl: 3.6rem !default;
+$fontsize-xxxl: 4.8rem !default;
