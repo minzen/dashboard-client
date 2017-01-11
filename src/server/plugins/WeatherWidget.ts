@@ -35,8 +35,11 @@ class WeatherWidget extends Dashboard.AbstractWidget {
                 let temperature: number = Math.round(tempBase - 273);
                 let text: string = response.weather[0].description;
                 let iconUrl: string = 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
+                let city: string = response.name;
+                let humidity: number = response.main.humidity;
+                let wind: number = response.wind.speed;
 
-                this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconUrl);
+                this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconUrl, city, humidity, wind);
             })
             .catch(function (err) {
                 console.log("Weather API call failed..." + err)
