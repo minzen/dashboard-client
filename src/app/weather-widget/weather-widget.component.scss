@@ -1,0 +1,25 @@
+.widget {
+    display: inline-block;
+    border: #cccccc solid thin;
+    border-radius: 10px;
+    background: #ecf4fc;
+    text-align: center;
+}
+
+.city_title {
+    font-size: 11pt;
+    margin-top: 5px;
+}
+
+.temperature {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.desc {
+    list-style-type: none;
+    font-size: 9pt;
+    text-align: left;
+    padding: 5px 10px;
+    margin: 0;
+}

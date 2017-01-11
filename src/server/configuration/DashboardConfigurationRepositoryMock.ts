@@ -34,7 +34,7 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
         weatherWidgetConfig.setType('weather');
         weatherWidgetConfig.setConfiguration({
             appid: '815048e6bb5778bc52d19ee3cb768553',
-            language: 'de',
+            language: 'en',
             location: 'Bremen,DE'
         });
 
