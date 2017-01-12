@@ -4,10 +4,10 @@
  * @author dbrandt
  * @since 0.0.1
  */
-import Widget from "../widget/WidgetMetadata";
-import * as Dashboard from "../widget/AbstractWidget";
-import WeatherWidgetUpdate from "../../common/WeatherWidgetUpdate";
-import * as RequestPromise from "request-promise";
+import Widget from '../widget/WidgetMetadata';
+import * as Dashboard from '../widget/AbstractWidget';
+import WeatherWidgetUpdate from '../../common/WeatherWidgetUpdate';
+import * as RequestPromise from 'request-promise';
 
 @Widget({
     author: 'dbrandt',
@@ -18,7 +18,7 @@ import * as RequestPromise from "request-promise";
 class WeatherWidget extends Dashboard.AbstractWidget {
 
     private url: string = 'http://api.openweathermap.org/data/2.5/weather';
-    private weatherWidgetUpdate: WeatherWidgetUpdate; //temporary
+    private weatherWidgetUpdate: WeatherWidgetUpdate; // temporary
 
     public onInit() {
         this.getWeatherData();
@@ -42,14 +42,14 @@ class WeatherWidget extends Dashboard.AbstractWidget {
                 this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconUrl, city, humidity, wind);
             })
             .catch(function (err) {
-                console.log("Weather API call failed..." + err)
+                console.log('Weather API call failed...' + err);
             });
         return this.weatherWidgetUpdate;
     }
 
     private getWeatherWidgetUpdate() {
-        var config = this.getConfiguration();
-        var options = {
+        let config = this.getConfiguration();
+        let options = {
             uri: this.url,
             qs: {
                 appid: config.appid,
@@ -58,6 +58,6 @@ class WeatherWidget extends Dashboard.AbstractWidget {
             },
             json: true // Automatically parses the JSON string in the response
         };
-        return RequestPromise(options)
+        return RequestPromise(options);
     }
 }

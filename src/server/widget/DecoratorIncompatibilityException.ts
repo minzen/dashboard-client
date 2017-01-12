@@ -12,7 +12,7 @@ class DecoratorIncompatibilityException {
 
     constructor(message) {
         this.message = message;
-        this.name = "DecoratorIncompatibilityException";
+        this.name = 'DecoratorIncompatibilityException';
     }
 
 }

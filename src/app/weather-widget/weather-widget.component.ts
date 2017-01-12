@@ -1,14 +1,14 @@
-import {Component, OnInit} from "@angular/core";
-import {Subscription} from "rxjs";
-import {MessageService} from "../message.service";
-import WeatherWidgetUpdate from "../../common/WeatherWidgetUpdate";
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {MessageService} from '../message.service';
+import WeatherWidgetUpdate from '../../common/WeatherWidgetUpdate';
 
 @Component({
     selector: 'app-weather-widget',
     templateUrl: './weather-widget.component.html',
     styleUrls: ['./weather-widget.component.scss'],
 })
-export class WeatherWidgetComponent implements OnInit {
+export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
     temperature: string;
     condition: string;
@@ -33,7 +33,7 @@ export class WeatherWidgetComponent implements OnInit {
     }
 
     ngOnDestroy() {
-        //this.connection.unsubscribe();
+        // this.connection.unsubscribe();
     }
 
 }

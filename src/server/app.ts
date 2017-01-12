@@ -1,13 +1,10 @@
 /**
  *
  */
-
-import * as express from "express";
-import * as http from "http";
-import * as serveStatic from "serve-static";
-import * as path from "path";
-import * as socketIo from "socket.io";
-
+import * as express from 'express';
+import * as http from 'http';
+import * as path from 'path';
+import * as socketIo from 'socket.io';
 import DynamicModuleLoader from './DynamicModuleLoader';
 import PluginRegistry from './PluginRegistry';
 import WidgetConstructor from './widget/WidgetConstructor';
@@ -126,16 +123,16 @@ class Server {
 
     // Start HTTP server listening
     private listen(): void {
-        //listen on provided ports
+        // listen on provided ports
         this.server.listen(this.port);
 
-        //add error handler
-        this.server.on("error", error => {
-            console.log("ERROR", error);
+        // add error handler
+        this.server.on('error', error => {
+            console.log('ERROR', error);
         });
 
-        //start listening on port
-        this.server.on("listening", () => {
+        // start listening on port
+        this.server.on('listening', () => {
             console.log('==> Listening on port %s. Open up http://localhost:%s/ in your browser.', this.port, this.port);
         });
 
