@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
-import {WeatherWidgetComponent} from "./weather-widget.component";
-import {MessageService} from "../message.service";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {WeatherWidgetComponent} from './weather-widget.component';
+import {MessageService} from '../message.service';
 
 describe('WeatherWidgetComponent', () => {
     let component: WeatherWidgetComponent;

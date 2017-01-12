@@ -4,9 +4,9 @@
  * @author Johannes Diemke <johannes.diemke@eventim.de>
  * @since 0.0.1
  */
-import DashboardConfiguration from "./DashboardConfiguration";
-import WidgetConfiguration from "./WidgetConfiguration";
-import DashboardConfigurationRepository from "./DashboardConfigurationRepository";
+import DashboardConfiguration from './DashboardConfiguration';
+import WidgetConfiguration from './WidgetConfiguration';
+import DashboardConfigurationRepository from './DashboardConfigurationRepository';
 
 export default class DashboardConfigurationRepositoryMock implements DashboardConfigurationRepository {
 

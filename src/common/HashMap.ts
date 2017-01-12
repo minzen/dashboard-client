@@ -7,7 +7,7 @@
 
 export default class HashMap<V> {
 
-    private map: {[designation: string] : V};
+    private map: {[designation: string]: V};
 
     constructor() {
         this.map = {};
@@ -34,8 +34,8 @@ export default class HashMap<V> {
     }
 
     public containsValue(value: V): boolean {
-        for(let x in this.map) {
-            if(this.map[x] == value) {
+        for (let x in this.map) {
+            if (this.map[x] === value) {
                 return true;
             }
         }
@@ -45,18 +45,22 @@ export default class HashMap<V> {
     public getAllKeys(): Array<string> {
         let keys: Array<string> = new Array<string>();
 
-        for(let x in this.map) {
-            keys.push(x);
+        for (let x in this.map) {
+            if (this.map.hasOwnProperty(x)) {
+                keys.push(x);
+            }
         }
 
         return keys;
     }
 
     public size(): number {
-        let count: number = 0;
+        let count = 0;
 
-        for(let x in this.map) {
-            count++;
+        for (let x in this.map) {
+            if (this.map.hasOwnProperty(x)) {
+                count++;
+            }
         }
 
         return count;

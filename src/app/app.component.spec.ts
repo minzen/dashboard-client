@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed} from "@angular/core/testing";
-import {AppComponent} from "./app.component";
-import {TimeWidgetComponent} from "./time-widget/time-widget.component";
-import {NewsWidgetComponent} from "./news-widget/news-widget.component";
-import {MessageService} from "./message.service";
-import {WeatherWidgetComponent} from "./weather-widget/weather-widget.component";
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {TimeWidgetComponent} from './time-widget/time-widget.component';
+import {NewsWidgetComponent} from './news-widget/news-widget.component';
+import {MessageService} from './message.service';
+import {WeatherWidgetComponent} from './weather-widget/weather-widget.component';
 
 describe('AppComponent', () => {
     beforeEach(() => {
