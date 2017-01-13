@@ -14,6 +14,7 @@
     .clock-wrapper {
         display: inline-block;
         color: $white;
+        vertical-align: baseline;
 
         .icon-wrapper {
             display: inline-block;
@@ -24,6 +25,7 @@
     .title-wrapper {
         display: inline-block;
         vertical-align: top;
+        vertical-align: baseline;
 
         .dashboard-title {
             display: inline-block;
@@ -38,6 +40,7 @@
     .logo-wrapper {
         display: inline-block;
         margin: 5px 10px 5px;
+        vertical-align: -webkit-baseline-middle;
 
         > img {
             height: 55px;
