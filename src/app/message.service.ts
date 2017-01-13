@@ -1,8 +1,9 @@
-import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
-import * as io from "socket.io-client";
-import ClockWidgetUpdate from "../common/ClockWidgetUpdate";
-import NewsWidgetUpdate from "../common/NewsWidgetUpdate";
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import * as io from 'socket.io-client';
+import ClockWidgetUpdate from '../common/ClockWidgetUpdate';
+import NewsWidgetUpdate from '../common/NewsWidgetUpdate';
+import WeatherWidgetUpdate from '../common/WeatherWidgetUpdate';
 
 @Injectable()
 export class MessageService {
@@ -10,7 +11,7 @@ export class MessageService {
     private url: string;
 
     constructor() {
-         this.socket = io(this.url);
+        this.socket = io(this.url);
     }
 
     public setup(url: string): void {
@@ -23,6 +24,10 @@ export class MessageService {
 
     public observeClockWidget(): Observable<ClockWidgetUpdate> {
         return this.observeEvent<ClockWidgetUpdate>('clock');
+    }
+
+    public observeWeatherWidget(): Observable<WeatherWidgetUpdate> {
+        return this.observeEvent<WeatherWidgetUpdate>('weather');
     }
 
     public observeEvent<T>(eventName: string): Observable<T> {

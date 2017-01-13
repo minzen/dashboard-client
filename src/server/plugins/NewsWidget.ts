@@ -4,7 +4,6 @@
  * @author Johannes Diemke <johannes.diemke@eventim.de>
  * @since 0.0.1
  */
-
 import Widget from '../widget/WidgetMetadata';
 import * as Dashboard from '../widget/AbstractWidget';
 import NewsWidgetUpdate from '../../common/NewsWidgetUpdate';

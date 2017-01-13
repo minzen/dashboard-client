@@ -7,7 +7,7 @@
 
 export default class NewsWidgetUpdate {
 
-    public newsText : string;
+    public newsText: string;
 
     constructor(newsText: string) {
         this.newsText = newsText;
