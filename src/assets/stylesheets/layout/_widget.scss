@@ -1,9 +1,20 @@
 .widget-container {
-    display: inline-block;
+    display: block;
     border: 2px solid $darkgrey;
+    margin: .5rem;
+    padding: .5rem;
+
+    >.headline {
+        font-size: $fontsize-l;
+    }
 
     &.size-1x1 {
-        width: 300px;
+        width: 400px;
+        height: 300px;
+    }
+
+    &.size-1x2 {
+        width: 800px;
         height: 300px;
     }
 }

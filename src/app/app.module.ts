@@ -9,6 +9,7 @@ import { MessageService } from './message.service';
 import { NewsWidgetComponent } from './news-widget/news-widget.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
+import { WidgetStageComponent } from './widget-stage/widget-stage.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WeatherWidgetComponent } from './weather-widget/weather-widget.componen
     TimeWidgetComponent,
     NewsWidgetComponent,
     HeaderComponent,
-    WeatherWidgetComponent
+    WeatherWidgetComponent,
+    WidgetStageComponent
   ],
   imports: [
     BrowserModule,

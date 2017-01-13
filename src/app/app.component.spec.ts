@@ -27,17 +27,4 @@ describe('AppComponent', () => {
         let app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     });
-
-    it(`should have as title 'Eventim Dashboard'`, () => {
-        let fixture = TestBed.createComponent(AppComponent);
-        let app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('Eventim Dashboard');
-    });
-
-    it('should render title in a h1 tag', () => {
-        let fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        let compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Eventim Dashboard');
-    });
 });
