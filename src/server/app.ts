@@ -71,7 +71,7 @@ class Server {
         router = express.Router();
 
         // Static assets
-         this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
+         this.app.use('/assets', this.app.serveStatic(path.resolve(this.root, 'assets')));
 
         this.app.use(express.static(this.root));
 

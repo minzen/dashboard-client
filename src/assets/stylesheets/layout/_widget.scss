@@ -1,0 +1,9 @@
+.widget-container {
+    display: inline-block;
+    border: 2px solid $darkgrey;
+
+    &.size-1x1 {
+        width: 300px;
+        height: 300px;
+    }
+}
