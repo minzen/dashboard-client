@@ -20,4 +20,4 @@ import 'zone.js/dist/zone';
 
 // intl polyfill for phantomjs
 import 'intl';
-import 'intl/locale-data/jsonp/de.js'
+import 'intl/locale-data/jsonp/de.js';
