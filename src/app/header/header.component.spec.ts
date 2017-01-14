@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HeaderComponent } from './header.component';
+import { TimeWidgetComponent } from '../time-widget/time-widget.component';
 import { MessageService } from '../message.service';
 
 describe('HeaderComponent', () => {
@@ -12,7 +13,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [
+          HeaderComponent,
+          TimeWidgetComponent
+           ],
         providers: [ MessageService ]
     })
     .compileComponents();

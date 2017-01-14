@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {WidgetStageComponent} from './widget-stage/widget-stage.component';
 import {TimeWidgetComponent} from './time-widget/time-widget.component';
 import {NewsWidgetComponent} from './news-widget/news-widget.component';
 import {MessageService} from './message.service';
@@ -11,6 +13,8 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
+                HeaderComponent,
+                WidgetStageComponent,
                 TimeWidgetComponent,
                 NewsWidgetComponent,
                 WeatherWidgetComponent
