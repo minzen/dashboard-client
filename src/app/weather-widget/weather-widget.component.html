@@ -1,13 +1,18 @@
-<div *ngIf="city" class="widget">
-    <div class="city_title">Weather in {{city}}</div>
-    <div class="temperature">
-        <img src="{{iconUrl}}"> {{temperature}}
-    </div>
-    <div>
-        <ul class="desc">
-            <li>{{condition}}</li>
-            <li>Humidity: {{humidity}} %</li>
-            <li>Wind: {{wind}} m/s</li>
-        </ul>
+<div class="widget-container size-1x1">
+    <span class="headline">Wetter</span>
+    <div *ngIf="city" class="widget">
+        <div class="city_title">Weather in {{city}}</div>
+        <i class="wi wi-night-sleet"></i>
+        <div class="temperature">
+            <img src="{{iconUrl}}"> {{temperature}}
+        </div>
+        <div>
+            <ul class="desc">
+                <li>{{condition}}</li>
+                <li>Humidity: {{humidity}} %</li>
+                <li>Wind: {{wind}} m/s</li>
+            </ul>
+        </div>
     </div>
 </div>
+

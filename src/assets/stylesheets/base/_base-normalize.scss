@@ -1,0 +1,115 @@
+* {
+  // http://paulirish.com/2012/box-sizing-border-box-ftw/
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: $transparent;
+
+
+  //Force vertical scrollbar so that page does not 'jump'
+  //when it appears http://css-tricks.com/snippets/css/force-vertical-scrollbar/
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+blockquote,
+figure,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+strong {
+  font-weight: bold;
+}
+
+sup {
+  position: relative;
+  top: -.5em;
+  font-size: 65%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+a,
+button {
+  color: inherit;
+}
+
+a {
+  // text-decoration: none;
+}
+
+input,
+textarea,
+select,
+button {
+  border-radius: 0;
+}
+
+button {
+  overflow: visible;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+  -webkit-font-smoothing: inherit;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic; // Better IMG resizing in IE
+}
+
+form,
+legend,
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  @include breakpoint(xs) {
+    min-width: 0;
+  }
+}
