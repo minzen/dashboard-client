@@ -22,7 +22,7 @@ class NewsWidget extends Dashboard.AbstractWidget {
         let index: number = Math.floor(Math.random() * this.greetings.length);
         let selection: string = this.greetings[index];
         this.newsWidgetUpdate = new NewsWidgetUpdate(selection);
-        this.updateSockets(this.newsWidgetUpdate);
+        this.updateView();
     }
 
     public onInit(): void {
@@ -33,5 +33,9 @@ class NewsWidget extends Dashboard.AbstractWidget {
         } else {
             this.greetings = ['missing configuration'];
         }
+    }
+
+    public updateView(): void {
+        super.emitUpdate(this.newsWidgetUpdate)
     }
 }

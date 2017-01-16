@@ -13,11 +13,12 @@ import * as RequestPromise from 'request-promise';
     author: 'dbrandt',
     designation: 'weather',
     version: '0.0.1',
-    updateInterval: 5000
+    updateInterval: 300000 // 5 min.
 })
 class WeatherWidget extends Dashboard.AbstractWidget {
 
     private url: string = 'http://api.openweathermap.org/data/2.5/weather';
+
     private weatherWidgetUpdate: WeatherWidgetUpdate;
 
     public onUpdate() {
@@ -30,14 +31,16 @@ class WeatherWidget extends Dashboard.AbstractWidget {
                 let city: string = response.name;
                 let humidity: number = response.main.humidity;
                 let wind: number = response.wind.speed;
-
                 this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconUrl, city, humidity, wind);
-                this.updateSockets(this.weatherWidgetUpdate);
+                this.updateView();
             })
             .catch(function (err) {
                 console.log('Weather API call failed...' + err);
             });
+    }
 
+    public updateView(): void {
+        super.emitUpdate(this.weatherWidgetUpdate)
     }
 
     private getWeatherWidgetUpdate() {

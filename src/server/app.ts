@@ -114,7 +114,9 @@ class Server {
 
                     widget.setConfiguration(widgetConfig.getConfiguration());
                     widget.setDesignation(constructor.metadata.designation);
+                    widget.addSocket(socket);
                     widget.onInit();
+                    widget.onUpdate();
 
                     setInterval(() => {
                         widget.onUpdate();
@@ -126,11 +128,12 @@ class Server {
                 }
             });
         }
-        dashboard.widgets.forEach((widget: WidgetInterface) => {
-            widget.addSocket(socket);
-            widget.onUpdate();
-        });
-
+        else {
+            dashboard.widgets.forEach((widget: WidgetInterface) => {
+                widget.addSocket(socket);
+                widget.updateView();
+            });
+        }
     }
 
     // Configure sockets

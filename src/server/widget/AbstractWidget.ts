@@ -28,8 +28,8 @@ export abstract class AbstractWidget implements WidgetInterface {
         return this.configuration;
     }
 
-    public updateSockets(updateObject: any): void {
-        console.log('update client ' + this.designation);
+    protected emitUpdate(updateObject: any): void {
+
         this.sockets.forEach((socket: SocketIO.Socket) => {
             socket.emit(this.designation, updateObject);
         });
@@ -40,4 +40,5 @@ export abstract class AbstractWidget implements WidgetInterface {
     public onInit(): void {
     };
 
+    public abstract updateView(): void;
 }

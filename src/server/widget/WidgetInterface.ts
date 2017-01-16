@@ -9,7 +9,7 @@ interface WidgetInterface {
     onInit(): void;
     onUpdate(): void;
     setDesignation(designation: string): void;
-    updateSockets(updateObject: any): void;
+    updateView(): void;
     addSocket(socket: SocketIO.Socket): void;
     setConfiguration(configuration: any): void;
 }

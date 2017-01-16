@@ -17,7 +17,10 @@ import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';
 class ClockWidget extends Dashboard.AbstractWidget {
 
     public onUpdate(): void {
-        this.updateSockets(new ClockWidgetUpdate(new Date()));
+        this.updateView();
     }
 
+    public updateView(): void {
+        super.emitUpdate(new ClockWidgetUpdate(new Date()))
+    }
 }
