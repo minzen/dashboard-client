@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {WidgetStageComponent} from './widget-stage/widget-stage.component';
 import {TimeWidgetComponent} from './time-widget/time-widget.component';
 import {NewsWidgetComponent} from './news-widget/news-widget.component';
 import {MessageService} from './message.service';
@@ -11,6 +13,8 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
+                HeaderComponent,
+                WidgetStageComponent,
                 TimeWidgetComponent,
                 NewsWidgetComponent,
                 WeatherWidgetComponent
@@ -26,18 +30,5 @@ describe('AppComponent', () => {
         let fixture = TestBed.createComponent(AppComponent);
         let app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
-    });
-
-    it(`should have as title 'Eventim Dashboard'`, () => {
-        let fixture = TestBed.createComponent(AppComponent);
-        let app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('Eventim Dashboard');
-    });
-
-    it('should render title in a h1 tag', () => {
-        let fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        let compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Eventim Dashboard');
     });
 });

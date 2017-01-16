@@ -12,14 +12,15 @@ export class TimeWidgetComponent implements OnInit, OnDestroy {
     message: Date;
     connection: Subscription;
 
-    constructor(private messageService: MessageService) {
-    }
+  constructor(private messageService: MessageService) {
+  }
 
-    ngOnInit() {
-        this.connection = this.messageService.observeClockWidget().subscribe((message: ClockWidgetUpdate) => {
-            this.message = message.time;
+  ngOnInit() {
+      this.message = new Date('2017-01-10T12:26:37.799Z');
+      this.connection = this.messageService.observeClockWidget().subscribe((message: ClockWidgetUpdate) => {
+          this.message = message.time;
         });
-    }
+  }
 
     ngOnDestroy() {
         // this.connection.unsubscribe();

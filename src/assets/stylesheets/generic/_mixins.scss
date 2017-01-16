@@ -1,0 +1,24 @@
+// Breakpoint Mixin
+// Valid Input => 'xs', 's', 'sm', 'm', 'm-only', 'ml', 'l', 'lxl', 'xl'
+//
+//'(max-width: 479px)' 'xs',
+//'(min-width: 480px)' 's',
+//'(max-width: 767px)' 'sm',
+//'(min-width: 768px)' 'm',
+//'(min-width: 768px) and (max-width: 999px)' 'm-only',
+//'(max-width: 999px)' 'ml',
+//'(min-width: 1000px)' 'l',
+//'(max-width: 1199px)' 'lxl',
+//'(min-width: 1200px)' 'xl'
+//
+@mixin breakpoint($point) {
+  @each $breakpoint in $breakpoints {
+    $query: nth($breakpoint, 1);
+    $name: nth($breakpoint, 2);
+    @if ($name == $point) {
+      @media #{$query} {
+        @content;
+      }
+    }
+  }
+}
