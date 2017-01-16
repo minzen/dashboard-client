@@ -1,0 +1,27 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 2.5rem;
+  background-color: $white;
+  position: relative;
+}
+
+body {
+  color: $text-color;
+  font-size: 1.6rem;
+  line-height: $base-lineheight;
+  letter-spacing: $base-letter-spacing;
+  font-weight: 500;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: $font-family;
+}

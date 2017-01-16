@@ -11,7 +11,7 @@ import NewsWidgetUpdate from '../../common/NewsWidgetUpdate';
 })
 export class NewsWidgetComponent implements OnInit, OnDestroy {
 
-    newsText: string;
+    newsText: string = 'News loading ....';
     connection: Subscription;
 
     constructor(private messageService: MessageService) {

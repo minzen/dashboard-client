@@ -5,6 +5,7 @@ import * as express from 'express';
 import * as http from 'http';
 import * as path from 'path';
 import * as socketIo from 'socket.io';
+import * as serveStatic from 'serve-static';
 import DynamicModuleLoader from './DynamicModuleLoader';
 import PluginRegistry from './PluginRegistry';
 import WidgetConstructor from './widget/WidgetConstructor';
@@ -71,7 +72,7 @@ class Server {
         router = express.Router();
 
         // Static assets
-        //  this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
+        this.app.use('/assets', serveStatic(path.resolve(this.root, 'assets')));
 
         this.app.use(express.static(this.root));
 
@@ -103,7 +104,7 @@ class Server {
                 widget.setConfiguration(widgetConfig.getConfiguration());
                 widget.onInit();
 
-                socket.emit(constructor.metadata.designation, widget.onUpdate());
+               // socket.emit(constructor.metadata.designation, widget.onUpdate());
                 setInterval(() => {
                     socket.emit(constructor.metadata.designation, widget.onUpdate());
                 }, constructor.metadata.updateInterval);
