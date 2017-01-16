@@ -13,6 +13,9 @@ import DashboardConfiguration from './configuration/DashboardConfiguration';
 import WidgetConfiguration from './configuration/WidgetConfiguration';
 import DashboardConfigurationRepositoryMock from './configuration/DashboardConfigurationRepositoryMock';
 import DashboardConfigurationRepository from './configuration/DashboardConfigurationRepository';
+import DashboardRepository from './dashboard/DashboardRepository';
+import Dashboard from './dashboard/Dashboard';
+import {isUndefined} from 'util';
 
 declare var process, __dirname;
 
@@ -28,6 +31,8 @@ class Server {
 
     // substitute this with a real mongo db bases repository later on
     private dashboardConfigurationRepository: DashboardConfigurationRepository = new DashboardConfigurationRepositoryMock();
+
+    private dashboardRepository: DashboardRepository = new DashboardRepository();
 
     // Bootstrap the application.
     public static bootstrap(): Server {
@@ -85,31 +90,46 @@ class Server {
     }
 
     private connectWidgets(socket: SocketIO.Socket): void {
+
         let dashboardConfig: DashboardConfiguration;
         dashboardConfig = this.dashboardConfigurationRepository.findByName('MyDashboard');
-
         console.log('Dashboard Configuration: ' + JSON.stringify(dashboardConfig, null, 4));
 
-        let widgets: Array<WidgetConfiguration> = dashboardConfig.getWidgetConfigurations();
+        let dashboard: Dashboard = this.dashboardRepository.findByName(dashboardConfig.getName());
+        if (isUndefined(dashboard)) {
+            let dashboardName = dashboardConfig.getName();
+            console.log('init dashboard ' + dashboardName);
+            dashboard = new Dashboard(dashboardName);
+            this.dashboardRepository.addDashboard(dashboardName, dashboard);
 
-        widgets.forEach((widgetConfig: WidgetConfiguration) => {
-            console.log('fetching constructor of type: ' + widgetConfig.getType());
-            let constructor: WidgetConstructor = this.pluginRegistry.get(widgetConfig.getType());
+            let widgets: Array<WidgetConfiguration> = dashboardConfig.getWidgetConfigurations();
+            widgets.forEach((widgetConfig: WidgetConfiguration) => {
+                console.log('fetching constructor of type: ' + widgetConfig.getType());
+                let constructor: WidgetConstructor = this.pluginRegistry.get(widgetConfig.getType());
 
-            if (constructor != null) {
-                console.log('constructing widget with configuration: ' + JSON.stringify(widgetConfig.getConfiguration(), null, 4));
-                let widget: WidgetInterface = new constructor();
+                if (constructor != null) {
+                    console.log('constructing widget with configuration: ' + JSON.stringify(widgetConfig.getConfiguration(), null, 4));
+                    let widget: WidgetInterface = new constructor();
 
-                widget.setConfiguration(widgetConfig.getConfiguration());
-                widget.onInit();
+                    widget.setConfiguration(widgetConfig.getConfiguration());
+                    widget.setDesignation(constructor.metadata.designation);
+                    widget.onInit();
 
-                setInterval(() => {
-                    socket.emit(constructor.metadata.designation, widget.onUpdate());
-                }, constructor.metadata.updateInterval);
-            } else {
-                console.log('constructor does not exist');
-            }
+                    setInterval(() => {
+                        widget.onUpdate();
+                    }, constructor.metadata.updateInterval);
+
+                    dashboard.addWidget(widget);
+                } else {
+                    console.log('constructor does not exist');
+                }
+            });
+        }
+        dashboard.widgets.forEach((widget: WidgetInterface) => {
+            widget.addSocket(socket);
+            widget.onUpdate();
         });
+
     }
 
     // Configure sockets
