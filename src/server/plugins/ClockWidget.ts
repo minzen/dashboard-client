@@ -21,6 +21,6 @@ class ClockWidget extends Dashboard.AbstractWidget {
     }
 
     public updateView(): void {
-        super.emitUpdate(new ClockWidgetUpdate(new Date()))
+        super.emitUpdate(new ClockWidgetUpdate(new Date()));
     }
 }

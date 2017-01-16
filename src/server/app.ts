@@ -127,8 +127,7 @@ class Server {
                     console.log('constructor does not exist');
                 }
             });
-        }
-        else {
+        } else {
             dashboard.widgets.forEach((widget: WidgetInterface) => {
                 widget.addSocket(socket);
                 widget.updateView();

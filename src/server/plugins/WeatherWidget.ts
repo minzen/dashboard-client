@@ -40,7 +40,7 @@ class WeatherWidget extends Dashboard.AbstractWidget {
     }
 
     public updateView(): void {
-        super.emitUpdate(this.weatherWidgetUpdate)
+        super.emitUpdate(this.weatherWidgetUpdate);
     }
 
     private getWeatherWidgetUpdate() {

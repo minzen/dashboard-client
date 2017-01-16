@@ -36,6 +36,6 @@ class NewsWidget extends Dashboard.AbstractWidget {
     }
 
     public updateView(): void {
-        super.emitUpdate(this.newsWidgetUpdate)
+        super.emitUpdate(this.newsWidgetUpdate);
     }
 }
