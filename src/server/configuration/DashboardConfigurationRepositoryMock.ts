@@ -38,9 +38,18 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
             location: 'Bremen,DE'
         });
 
+               let head: WidgetConfiguration = new WidgetConfiguration();
+        head.setType('headlines');
+        head.setConfiguration({
+            appid: '815048e6bb5778bc52d19ee3cb768553',
+            language: 'en',
+            location: 'Bremen,DE'
+        });
+
         dashboardConfig.addWidgetConfiguration(newsWidgetConfig);
         dashboardConfig.addWidgetConfiguration(clockWidgetConfig);
         dashboardConfig.addWidgetConfiguration(weatherWidgetConfig);
+        dashboardConfig.addWidgetConfiguration(head);
         return dashboardConfig;
     }
 

@@ -1,0 +1,7 @@
+<div *ngIf="content" class="post-container">
+    <div class="post-thumb" [ngStyle]="{'background': 'url(' + imagePath + ') 50% 50% no-repeat', 'background-size': 'cover'}"></div>
+    <div class="post-content">
+        <h3 class="post-title">{{headline}}</h3>
+        <p>{{content}}</p>
+    </div>
+</div>

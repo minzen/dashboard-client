@@ -8,13 +8,15 @@ import { TimeWidgetComponent } from './time-widget/time-widget.component';
 import { MessageService } from './message.service';
 import { NewsWidgetComponent } from './news-widget/news-widget.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
+import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimeWidgetComponent,
     NewsWidgetComponent,
-    WeatherWidgetComponent
+    WeatherWidgetComponent,
+    MyNewsWidgetComponent
   ],
   imports: [
     BrowserModule,

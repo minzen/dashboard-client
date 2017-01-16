@@ -103,6 +103,7 @@ class Server {
                 widget.setConfiguration(widgetConfig.getConfiguration());
                 widget.onInit();
 
+                socket.emit(constructor.metadata.designation, widget.onUpdate());
                 setInterval(() => {
                     socket.emit(constructor.metadata.designation, widget.onUpdate());
                 }, constructor.metadata.updateInterval);
