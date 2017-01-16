@@ -12,7 +12,7 @@ export class MyNewsWidgetComponent implements OnInit {
 
     imagePath: string;
     headline: string;
-    content: string;
+    content: string = 'Loading';
     connection: Subscription;
 
     constructor(private messageService: MessageService) {

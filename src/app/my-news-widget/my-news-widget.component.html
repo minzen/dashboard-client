@@ -1,7 +1,10 @@
-<div *ngIf="content" class="post-container">
-    <div class="post-thumb" [ngStyle]="{'background': 'url(' + imagePath + ') 50% 50% no-repeat', 'background-size': 'cover'}"></div>
-    <div class="post-content">
-        <h3 class="post-title">{{headline}}</h3>
-        <p>{{content}}</p>
+<div class="widget-container size-1x1">
+    <span class="headline">News</span>
+    <div *ngIf="content" class="news-container">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + imagePath + ')'}"></div>
+        <div class="news-content">
+            <h3 class="news-title">{{headline}}</h3>
+            <p>{{content}}</p>
+        </div>
     </div>
 </div>
