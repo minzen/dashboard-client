@@ -27,6 +27,7 @@
     "@angular/platform-browser-dynamic": "2.4.1",
     "@angular/router": "3.4.1",
     "@types/express": "~4.0.34",
+    "@types/node": "7.0.0",
     "@types/request-promise": "^4.1.33",
     "@types/socket.io": "1.4.27",
     "@types/socket.io-client": "1.4.29",
@@ -49,7 +50,6 @@
   "devDependencies": {
     "@angular/compiler-cli": "2.4.1",
     "@types/jasmine": "2.5.38",
-    "@types/node": "^6.0.42",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
