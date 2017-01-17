@@ -4,7 +4,6 @@
  * @author Johannes Diemke <johannes.diemke@eventim.de>
  * @since 0.0.1
  */
-
 import Widget from '../widget/WidgetMetadata';
 import * as Dashboard from '../widget/AbstractWidget';
 import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';
@@ -17,8 +16,11 @@ import ClockWidgetUpdate from '../../common/ClockWidgetUpdate';
 })
 class ClockWidget extends Dashboard.AbstractWidget {
 
-    public onUpdate(): ClockWidgetUpdate {
-        return new ClockWidgetUpdate(new Date());
+    public onUpdate(): void {
+        this.updateView();
     }
 
+    public updateView(): void {
+        super.emitUpdate(new ClockWidgetUpdate(new Date()));
+    }
 }

@@ -5,12 +5,13 @@
  * @since 0.0.1
  */
 
-import WidgetMetaDataInterface from './WidgetMetaDataInterface';
-
 interface WidgetInterface {
-    onInit: Function;
-    onUpdate: Function;
-    setConfiguration: Function;
+    onInit(): void;
+    onUpdate(): void;
+    setDesignation(designation: string): void;
+    updateView(): void;
+    addSocket(socket: SocketIO.Socket): void;
+    setConfiguration(configuration: any): void;
 }
 
 export default WidgetInterface;
