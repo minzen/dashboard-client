@@ -15,8 +15,15 @@ import NewsWidgetUpdate from '../../common/NewsWidgetUpdate';
     updateInterval: 2500,
 })
 class NewsWidget extends Dashboard.AbstractWidget {
-
     private greetings: Array<string>;
+    private newsWidgetUpdate: NewsWidgetUpdate;
+
+    public onUpdate(): void {
+        let index: number = Math.floor(Math.random() * this.greetings.length);
+        let selection: string = this.greetings[index];
+        this.newsWidgetUpdate = new NewsWidgetUpdate(selection);
+        this.updateView();
+    }
 
     public onInit(): void {
         let newsWidgetConfiguration: any = this.getConfiguration();
@@ -28,10 +35,7 @@ class NewsWidget extends Dashboard.AbstractWidget {
         }
     }
 
-    public onUpdate(): NewsWidgetUpdate {
-        let index: number = Math.floor(Math.random() * this.greetings.length);
-        let selection: string = this.greetings[index];
-        return new NewsWidgetUpdate(selection);
+    public updateView(): void {
+        super.emitUpdate(this.newsWidgetUpdate);
     }
-
 }

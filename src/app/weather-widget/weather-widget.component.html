@@ -2,9 +2,8 @@
     <span class="headline">Wetter</span>
     <div *ngIf="city" class="widget">
         <div class="city_title">Weather in {{city}}</div>
-        <i class="wi wi-night-sleet"></i>
         <div class="temperature">
-            <img src="{{iconUrl}}"> {{temperature}}
+            <i class="wi {{iconClass}}"></i> {{temperature}}
         </div>
         <div>
             <ul class="desc">
