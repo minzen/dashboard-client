@@ -20,39 +20,63 @@ import * as RequestPromise from 'request-promise';
     author: 'Johannes Diemke <johannes.diemke@eventim.de>',
     designation: 'headlines',
     version: '0.0.1',
-    updateInterval: 5000
+    updateInterval: 30000
 })
 class MyNewsWidget extends Dashboard.AbstractWidget {
 
     private model: MyNewsWidgetUpdate;
+    private lastUpdate: Date = null;
+    private static ONE_HOUR_IN_MS: number = 60 * 60 * 1000; // ms
+    private response: any;
+    private index: number = 0;
 
-    public onUpdate(): MyNewsWidgetUpdate {
-
-        this.getWeatherWidgetUpdate()
-            .then((response) => {
-                console.log("source: " + response.source);
-                console.log("source: " + JSON.stringify(response.articles));
-
-                let index: number = Math.floor(Math.random() * response.articles.length);
-
-                let content: string = response.articles[index].description;
-                let imagePath: string = response.articles[index].urlToImage;
-                let headline: string = response.articles[index].title;
-
-                this.model = new MyNewsWidgetUpdate(headline, content, imagePath);
-            });
-        return this.model;
+    public onUpdate(): void {
+        if (this.lastUpdate == null || ((new Date().getTime() - this.lastUpdate.getTime()) > MyNewsWidget.ONE_HOUR_IN_MS)) {
+            this.getNewsUpdate()
+                .then((response) => {
+                    console.log('Requesting News from REST API.');
+                    this.response = response;
+                    this.index = 0;
+                    this.selectNews();
+                    this.lastUpdate = new Date();
+                });
+        } else {
+            this.selectNews();
+        }
     }
 
-    private getWeatherWidgetUpdate() {
-        // let config = this.getConfiguration();
+    private selectNews(): void {
+        console.log('Sending news with index ' + this.index + 'to socket.');
+
+        let index: number = this.index;
+        this.index = (this.index + 1) % this.response.articles.length;
+
+        let content: string = this.response.articles[index].description;
+        let imagePath: string = this.response.articles[index].urlToImage;
+        let headline: string = this.response.articles[index].title;
+
+        this.setModel(new MyNewsWidgetUpdate(headline, content, imagePath));
+    }
+
+    private setModel(model: MyNewsWidgetUpdate): void {
+        this.model = model;
+        super.emitUpdate(this.model);
+    }
+
+    public updateView(): void {
+        super.emitUpdate(this.model);
+    }
+
+    private getNewsUpdate() {
+        let config = this.getConfiguration();
         let options = {
             uri: 'https://newsapi.org/v1/articles',
             qs: {
-                apiKey: '1262e2f6806440bb84135a7bdb2580f5',
-                source: 'techcrunch'
+                apiKey: config.apiKey,
+                source: config.source,
+                sortBy: config.sortBy
             },
-            json: true // Automatically parses the JSON string in the response
+            json: true
         };
         return RequestPromise(options);
     }
