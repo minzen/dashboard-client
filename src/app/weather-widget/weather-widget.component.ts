@@ -12,7 +12,7 @@ export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
     temperature: string;
     condition: string;
-    iconClass: string;
+    iconClass: string = 'wi-owm-day-801';
     city: string = 'Bremen';
     humidity: number;
     wind: number;
