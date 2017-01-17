@@ -10,6 +10,7 @@ import { NewsWidgetComponent } from '../news-widget/news-widget.component';
 import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from '../my-news-widget/my-news-widget.component';
 import { MessageService } from '../message.service';
+import { JiraWidgetComponent } from '../jira-widget/jira-widget.component';
 
 describe('WidgetStageComponent', () => {
   let component: WidgetStageComponent;
@@ -21,7 +22,7 @@ describe('WidgetStageComponent', () => {
           WidgetStageComponent,
           NewsWidgetComponent,
           WeatherWidgetComponent,
-          MyNewsWidgetComponent
+          JiraWidgetComponent
       ],
       providers: [ MessageService ]
     })

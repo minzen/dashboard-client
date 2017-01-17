@@ -8,6 +8,7 @@ import {NewsWidgetComponent} from './news-widget/news-widget.component';
 import {MyNewsWidgetComponent} from './my-news-widget/my-news-widget.component';
 import {MessageService} from './message.service';
 import {WeatherWidgetComponent} from './weather-widget/weather-widget.component';
+import {JiraWidgetComponent} from './jira-widget/jira-widget.component';
 
 describe('AppComponent', () => {
     beforeEach(() => {
@@ -19,8 +20,7 @@ describe('AppComponent', () => {
                 TimeWidgetComponent,
                 NewsWidgetComponent,
                 WeatherWidgetComponent,
-                MyNewsWidgetComponent
-            ],
+				MyNewsWidgetComponent,				JiraWidgetComponent            ],
             providers: [
                 MessageService
             ]

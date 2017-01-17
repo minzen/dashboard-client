@@ -11,16 +11,15 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 import { WidgetStageComponent } from './widget-stage/widget-stage.component';
+import { JiraWidgetComponent } from './jira-widget/jira-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimeWidgetComponent,
     NewsWidgetComponent,
-    WeatherWidgetComponent,
-    MyNewsWidgetComponent,
     HeaderComponent,
-    WidgetStageComponent
+    JiraWidgetComponent
   ],
   imports: [
     BrowserModule,
