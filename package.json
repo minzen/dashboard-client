@@ -4,7 +4,8 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
+    "start": "npm run run:server",
+    "postinstall": "npm run build:all",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "test:headless": "karma start karma.conf.js --browsers PhantomJS --autoWatch=true --singleRun=false",
