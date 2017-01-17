@@ -7,7 +7,7 @@ describe('client App', function() {
     page = new ClientPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display data saying app works', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('app works!');
   });

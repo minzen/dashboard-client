@@ -1,16 +1,35 @@
 <div class="widget-container size-1x1">
     <span class="headline">Wetter</span>
-    <div *ngIf="city" class="widget">
-        <div class="city_title">Weather in {{city}}</div>
-        <div class="temperature">
-            <i class="wi {{iconClass}}"></i> {{temperature}}
+    <div *ngIf="data" class="widget">
+        <div class="weather-overview">
+            <div><i class="wi {{data.iconClass}} icon-xxl"></i></div>
+            <div class="weather-temperature">
+                <i class="fa fa-thermometer-three-quarters fa-lg"></i> {{data.temperature}}
+            </div>
         </div>
-        <div>
-            <ul class="desc">
-                <li>{{condition}}</li>
-                <li>Humidity: {{humidity}} %</li>
-                <li>Wind: {{wind}} m/s</li>
-            </ul>
+        <div class="weather-details">
+            <div><i class="fa fa-map-marker fa-lg"></i> Bremen, DE</div>
+            <div class="weather-details-description">{{data.condition}}</div>
+            <div>
+                <span class="weather-details-label">Feuchtigkeit</span>
+                <span class="weather-details-data">{{data.humidity}} %</span>
+            </div>
+            <div>
+                <span class="weather-details-label">Luftdruck</span>
+                <span class="weather-details-data">{{data.pressure}} ''</span>
+            </div>
+            <div>
+                <span class="weather-details-label">Wind</span>
+                <span class="weather-details-data">{{data.wind}} m/s</span>
+            </div>
+            <div>
+                <i class="wi wi-sunrise icon-s"></i>
+                <span class="weather-details-data">{{data.sunrise | date: 'shortTime'}} Uhr</span>
+            </div>
+            <div>
+                <i class="wi wi-sunset icon-s"></i>
+                <span class="weather-details-data">{{data.sunset | date: 'shortTime'}} Uhr</span>
+            </div>
         </div>
     </div>
 </div>
