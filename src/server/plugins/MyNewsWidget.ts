@@ -24,9 +24,10 @@ import * as RequestPromise from 'request-promise';
 })
 class MyNewsWidget extends Dashboard.AbstractWidget {
 
+    private static ONE_HOUR_IN_MS: number = 60 * 60 * 1000; // ms
+
     private model: MyNewsWidgetUpdate;
     private lastUpdate: Date = null;
-    private static ONE_HOUR_IN_MS: number = 60 * 60 * 1000; // ms
     private response: any;
     private index: number = 0;
 
