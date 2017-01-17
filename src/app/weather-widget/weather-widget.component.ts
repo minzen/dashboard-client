@@ -12,7 +12,7 @@ export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
     temperature: string;
     condition: string;
-    iconUrl: string;
+    iconClass: string = 'wi-owm-day-801';
     city: string = 'Bremen';
     humidity: number;
     wind: number;
@@ -25,7 +25,7 @@ export class WeatherWidgetComponent implements OnInit, OnDestroy {
         this.connection = this.messageService.observeWeatherWidget().subscribe((message: WeatherWidgetUpdate) => {
             this.temperature = message.temperature;
             this.condition = message.condition;
-            this.iconUrl = message.iconUrl;
+            this.iconClass = message.iconClass;
             this.city = message.city;
             this.humidity = message.humidity;
             this.wind = message.wind;
