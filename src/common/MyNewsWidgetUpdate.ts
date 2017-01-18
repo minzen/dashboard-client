@@ -7,16 +7,14 @@
 
 export default class MyNewsWidgetUpdate {
 
-   public imagePath: string;
- public headline: string;
-  public  content: string;
+    public imagePath: string;
+    public headline: string;
+    public content: string;
 
     constructor(headline: string, content: string, imagePath: string) {
         this.headline = headline;
         this.content = content;
         this.imagePath = imagePath;
     }
-
-
 
 }
