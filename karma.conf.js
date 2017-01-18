@@ -34,6 +34,12 @@ module.exports = function (config) {
     reporters: config.angularCli && config.angularCli.codeCoverage
               ? ['progress', 'karma-remap-istanbul']
               : ['progress'],
+    coverageReporter: {
+        reporters: [
+                      {type:'lcovonly', subdir: '.'},
+                      {type:'json', subdir: '.'}
+                    ]
+    },
     phantomJsLauncher: {
         exitOnResourceError: true
     },

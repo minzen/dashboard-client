@@ -8,6 +8,7 @@
     "postinstall": "npm run build:all",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
+    "report-coverage": "codecov -t 1d230cd6-adc8-48d7-87fc-c5f62208cded",
     "test:headless": "karma start karma.conf.js --browsers PhantomJS --autoWatch=true --singleRun=false",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
