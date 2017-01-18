@@ -18,6 +18,8 @@ import { JiraWidgetComponent } from './jira-widget/jira-widget.component';
     AppComponent,
     TimeWidgetComponent,
     NewsWidgetComponent,
+    WeatherWidgetComponent,
+    MyNewsWidgetComponent,
     HeaderComponent,
     JiraWidgetComponent
   ],

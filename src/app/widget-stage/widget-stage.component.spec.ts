@@ -22,6 +22,7 @@ describe('WidgetStageComponent', () => {
           WidgetStageComponent,
           NewsWidgetComponent,
           WeatherWidgetComponent,
+          MyNewsWidgetComponent,
           JiraWidgetComponent
       ],
       providers: [ MessageService ]

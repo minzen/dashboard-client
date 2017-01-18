@@ -7,10 +7,10 @@
 
 export default class JiraWidgetUpdate {
 
-    public messageText: string;
+    public mMessage: string;
 
-    constructor(messageText: string) {
-        this.messageText = messageText;
+    constructor(message: string) {
+        this.mMessage = message;
     }
 
 }

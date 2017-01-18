@@ -35,13 +35,24 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
             location: 'Bremen,DE'
         });
 
+        let myNewsWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
+        myNewsWidgetConfig.setType('headlines');
+        myNewsWidgetConfig.setConfiguration({
+            apiKey: '1262e2f6806440bb84135a7bdb2580f5',
+            source: 'google-news',
+            sortBy: 'top',
+        });
+
         let jiraWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
         jiraWidgetConfig.setType('jira');
         jiraWidgetConfig.setConfiguration({});        
 
+        let dashboardConfig: DashboardConfiguration = new DashboardConfiguration();
+        dashboardConfig.setName('MyDashboard');
         dashboardConfig.addWidgetConfiguration(newsWidgetConfig);
         dashboardConfig.addWidgetConfiguration(clockWidgetConfig);
         dashboardConfig.addWidgetConfiguration(weatherWidgetConfig);
+        dashboardConfig.addWidgetConfiguration(myNewsWidgetConfig);
         dashboardConfig.addWidgetConfiguration(jiraWidgetConfig);
         return dashboardConfig;
     }

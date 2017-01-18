@@ -20,7 +20,9 @@ describe('AppComponent', () => {
                 TimeWidgetComponent,
                 NewsWidgetComponent,
                 WeatherWidgetComponent,
-				MyNewsWidgetComponent,				JiraWidgetComponent            ],
+				MyNewsWidgetComponent,				
+                JiraWidgetComponent            
+            ],
             providers: [
                 MessageService
             ]

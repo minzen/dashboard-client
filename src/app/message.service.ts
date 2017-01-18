@@ -4,6 +4,7 @@ import * as io from 'socket.io-client';
 import ClockWidgetUpdate from '../common/ClockWidgetUpdate';
 import NewsWidgetUpdate from '../common/NewsWidgetUpdate';
 import WeatherWidgetUpdate from '../common/WeatherWidgetUpdate';
+import MyNewsWidgetUpdate from '../common/MyNewsWidgetUpdate';
 import JiraWidgetUpdate from '../common/JiraWidgetUpdate';
 
 @Injectable()
@@ -29,6 +30,10 @@ export class MessageService {
 
     public observeWeatherWidget(): Observable<WeatherWidgetUpdate> {
         return this.observeEvent<WeatherWidgetUpdate>('weather');
+    }
+
+    public observeMyNewsWidget(): Observable<MyNewsWidgetUpdate> {
+        return this.observeEvent<MyNewsWidgetUpdate>('headlines');
     }
 
     public observeJiraWidget(): Observable<JiraWidgetUpdate> {
