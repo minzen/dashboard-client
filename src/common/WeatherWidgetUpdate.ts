@@ -25,7 +25,7 @@ export default class WeatherWidgetUpdate {
         this.humidity = humidity;
         this.wind = wind;
         this.pressure = pressure;
-        this.sunrise = sunrise * 1000;
-        this.sunset = sunset * 1000;
+        this.sunrise = sunrise;
+        this.sunset = sunset;
     }
 }

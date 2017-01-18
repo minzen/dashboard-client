@@ -10,7 +10,7 @@ import WeatherWidgetUpdate from '../../common/WeatherWidgetUpdate';
 })
 export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
-    data: WeatherWidgetUpdate
+    data: WeatherWidgetUpdate;
     connection: Subscription;
 
     constructor(private messageService: MessageService) {
