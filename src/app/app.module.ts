@@ -9,6 +9,7 @@ import { MessageService } from './message.service';
 import { NewsWidgetComponent } from './news-widget/news-widget.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
+import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 import { WidgetStageComponent } from './widget-stage/widget-stage.component';
 
 @NgModule({
@@ -16,8 +17,9 @@ import { WidgetStageComponent } from './widget-stage/widget-stage.component';
     AppComponent,
     TimeWidgetComponent,
     NewsWidgetComponent,
-    HeaderComponent,
     WeatherWidgetComponent,
+    MyNewsWidgetComponent,
+    HeaderComponent,
     WidgetStageComponent
   ],
   imports: [
