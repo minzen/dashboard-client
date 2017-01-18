@@ -8,6 +8,7 @@ import { AppModule } from '../app.module';
 import { WidgetStageComponent } from './widget-stage.component';
 import { NewsWidgetComponent } from '../news-widget/news-widget.component';
 import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
+import { MyNewsWidgetComponent } from '../my-news-widget/my-news-widget.component';
 import { MessageService } from '../message.service';
 
 describe('WidgetStageComponent', () => {
@@ -19,7 +20,8 @@ describe('WidgetStageComponent', () => {
       declarations: [
           WidgetStageComponent,
           NewsWidgetComponent,
-          WeatherWidgetComponent
+          WeatherWidgetComponent,
+          MyNewsWidgetComponent
       ],
       providers: [ MessageService ]
     })
