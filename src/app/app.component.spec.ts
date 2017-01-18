@@ -5,6 +5,7 @@ import {HeaderComponent} from './header/header.component';
 import {WidgetStageComponent} from './widget-stage/widget-stage.component';
 import {TimeWidgetComponent} from './time-widget/time-widget.component';
 import {NewsWidgetComponent} from './news-widget/news-widget.component';
+import {MyNewsWidgetComponent} from './my-news-widget/my-news-widget.component';
 import {MessageService} from './message.service';
 import {WeatherWidgetComponent} from './weather-widget/weather-widget.component';
 
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
                 WidgetStageComponent,
                 TimeWidgetComponent,
                 NewsWidgetComponent,
-                WeatherWidgetComponent
+                WeatherWidgetComponent,
+                MyNewsWidgetComponent
             ],
             providers: [
                 MessageService

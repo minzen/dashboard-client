@@ -1,0 +1,10 @@
+<div class="widget-container size-1x2">
+    <span class="headline">News</span>
+    <div *ngIf="model" class="news-container">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model.imagePath + ')'}"></div>
+        <div class="news-content">
+            <h3 class="news-title">{{model.headline}}</h3>
+            <p>{{model.content}}</p>
+        </div>
+    </div>
+</div>

@@ -27,9 +27,6 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
         clockWidgetConfig.setType('clock');
         clockWidgetConfig.setConfiguration({});
 
-        let dashboardConfig: DashboardConfiguration = new DashboardConfiguration();
-        dashboardConfig.setName('MyDashboard');
-
         let weatherWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
         weatherWidgetConfig.setType('weather');
         weatherWidgetConfig.setConfiguration({
@@ -38,9 +35,21 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
             location: 'Bremen,DE'
         });
 
+        let myNewsWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
+        myNewsWidgetConfig.setType('headlines');
+        myNewsWidgetConfig.setConfiguration({
+            apiKey: '1262e2f6806440bb84135a7bdb2580f5',
+            source: 'google-news',
+            sortBy: 'top',
+        });
+
+        let dashboardConfig: DashboardConfiguration = new DashboardConfiguration();
+        dashboardConfig.setName('MyDashboard');
         dashboardConfig.addWidgetConfiguration(newsWidgetConfig);
         dashboardConfig.addWidgetConfiguration(clockWidgetConfig);
         dashboardConfig.addWidgetConfiguration(weatherWidgetConfig);
+        dashboardConfig.addWidgetConfiguration(myNewsWidgetConfig);
+
         return dashboardConfig;
     }
 
