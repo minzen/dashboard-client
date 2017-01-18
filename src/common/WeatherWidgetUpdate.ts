@@ -12,14 +12,20 @@ export default class WeatherWidgetUpdate {
     public city: string;
     public humidity: number;
     public wind: number;
+    public pressure: number;
+    public sunrise: number;
+    public sunset: number;
 
-    constructor(temperature: string, condition: string, iconClass: string, city: string, humidity: number, wind: number) {
+    constructor(temperature: string, condition: string, iconClass: string, city: string, humidity: number, wind: number,
+                pressure: number, sunrise: number, sunset: number) {
         this.temperature = temperature;
         this.condition = condition;
         this.iconClass = iconClass;
         this.city = city;
         this.humidity = humidity;
         this.wind = wind;
+        this.pressure = pressure;
+        this.sunrise = sunrise;
+        this.sunset = sunset;
     }
-
 }

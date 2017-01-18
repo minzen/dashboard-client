@@ -1,0 +1,32 @@
+.weather-overview {
+    float: left;
+    font-size: $fontsize-l;
+    margin: 30px;
+    text-align: center;
+}
+
+.weather-details {
+    text-align: right;
+    margin: 10px;
+}
+
+.weather-details-label {
+    font-size: $fontsize-s;
+    font-style: italic;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.weather-details-data {
+    font-weight: bold;
+}
+
+.weather-details-description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.weather-temperature {
+    margin-top: 20px;
+    font-weight: bold;
+}

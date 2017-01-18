@@ -10,12 +10,7 @@ import WeatherWidgetUpdate from '../../common/WeatherWidgetUpdate';
 })
 export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
-    temperature: string;
-    condition: string;
-    iconClass: string = 'wi-owm-day-801';
-    city: string = 'Bremen';
-    humidity: number;
-    wind: number;
+    data: WeatherWidgetUpdate;
     connection: Subscription;
 
     constructor(private messageService: MessageService) {
@@ -23,17 +18,11 @@ export class WeatherWidgetComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.connection = this.messageService.observeWeatherWidget().subscribe((message: WeatherWidgetUpdate) => {
-            this.temperature = message.temperature;
-            this.condition = message.condition;
-            this.iconClass = message.iconClass;
-            this.city = message.city;
-            this.humidity = message.humidity;
-            this.wind = message.wind;
+            this.data = message;
         });
     }
 
     ngOnDestroy() {
-        // this.connection.unsubscribe();
     }
 
 }

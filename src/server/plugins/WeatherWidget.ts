@@ -18,20 +18,24 @@ import * as RequestPromise from 'request-promise';
 class WeatherWidget extends Dashboard.AbstractWidget {
 
     private url: string = 'http://api.openweathermap.org/data/2.5/weather';
-
     private weatherWidgetUpdate: WeatherWidgetUpdate;
 
-    public onUpdate() {
+    public onUpdate(): void {
         this.getWeatherWidgetUpdate()
             .then((response) => {
                 let tempBase: number = response.main.temp;
                 let temperature: number = Math.round(tempBase - 273);
                 let text: string = response.weather[0].description;
-                let iconClass: string = 'wi-owm-' + response.weather[0].id;
+                let iconClass: string = 'wi-owm-day-' + response.weather[0].id;
                 let city: string = response.name;
                 let humidity: number = response.main.humidity;
                 let wind: number = response.wind.speed;
-                this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconClass, city, humidity, wind);
+                let pressure: number = response.main.pressure;
+                let sunrise: number = response.sys.sunrise * 1000;
+                let sunset: number = response.sys.sunset * 1000;
+
+                this.weatherWidgetUpdate = new WeatherWidgetUpdate(temperature + ' °C', text, iconClass, city, humidity,
+                    wind, pressure, sunrise, sunset);
                 this.updateView();
             })
             .catch(function (err) {
