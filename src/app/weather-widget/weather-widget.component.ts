@@ -23,7 +23,6 @@ export class WeatherWidgetComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        // this.connection.unsubscribe();
     }
 
 }
