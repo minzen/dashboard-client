@@ -35,9 +35,11 @@ module.exports = function (config) {
               ? ['progress', 'karma-remap-istanbul']
               : ['progress'],
     coverageReporter: {
+        dir: 'coverage/',
         reporters: [
-                      {type:'lcovonly', subdir: '.'},
-                      {type:'json', subdir: '.'}
+                      {type:'html', subdir: 'html'},
+                      {type:'lcovonly', subdir: 'lcov'},
+                      {type:'cobertura', subdir: 'cobertura'}
                     ]
     },
     phantomJsLauncher: {
