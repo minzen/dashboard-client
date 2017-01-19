@@ -24,3 +24,6 @@ before_script:
 - ng build
 
 script: ng lint && karma start karma.conf.js --single-run
+
+after_script:
+  - npm run report-coverage
