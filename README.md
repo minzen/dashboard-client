@@ -1,6 +1,12 @@
 # Dashboard
 
-Travis-CI Build-Status: [![Build Status](https://travis-ci.org/marcolindner/dashboard.svg?branch=develop)](https://travis-ci.org/marcolindner/dashboard)
+Travis-CI Build-Status: [![Build Status](https://travis-ci.org/marcolindner/dashboard.svg?branch=develop)]
+(https://travis-ci.org/marcolindner/dashboard)
+
+CodeCov Status: [![codecov](https://codecov.io/gh/marcolindner/dashboard/branch/develop/graph/badge.svg)](https://codecov.io/gh/marcolindner/dashboard)
+
+#Der Develop wird regelmäßig auf heroku deployed. 
+http://evdashboard.herokuapp.com
 
 #Prüfen der Code-Coverage
 Die Code-Coverage wird durch codecov.io bei jedem Pull Request geprüft.
