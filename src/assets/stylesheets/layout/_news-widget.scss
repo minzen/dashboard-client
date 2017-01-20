@@ -9,6 +9,7 @@
     left: 0px;
     transition: left 3s;
     transition-timing-function: ease-in-out;
+    transform: translateZ(0);
 
     > .news-thumb {
         width: 300px;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../message.service';
-import MyNewsWidgetUpdate  from '../../common/MyNewsWidgetUpdate';
+import MyNewsWidgetUpdate from '../../common/MyNewsWidgetUpdate';
 
 @Component({
     selector: 'app-my-news-widget',
@@ -20,9 +20,10 @@ export class MyNewsWidgetComponent implements OnInit {
     }
 
     ngOnInit() {
+        // http://stackoverflow.com/questions/39656370/angular-2-preload-background-image
         this.connection = this.messageService.observeMyNewsWidget().subscribe((message: MyNewsWidgetUpdate) => {
-            this.left = (this.counter++ % 2) > 0 ? 800 : 0;
-            if (this.left === 0) {
+            let left: number = (this.counter++ % 2) > 0 ? 800 : 0;
+            if (left === 0) {
                 this.model1 = message;
                 if (this.model2 == null) {
                     this.model2 = message;
@@ -30,6 +31,7 @@ export class MyNewsWidgetComponent implements OnInit {
             } else {
                 this.model2 = message;
             }
+            this.left = left;
         });
     }
 
