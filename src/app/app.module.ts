@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 import { WidgetStageComponent } from './widget-stage/widget-stage.component';
+import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WidgetStageComponent } from './widget-stage/widget-stage.component';
     WeatherWidgetComponent,
     MyNewsWidgetComponent,
     HeaderComponent,
-    WidgetStageComponent
+    WidgetStageComponent,
+    WidgetWrapperComponent
   ],
   imports: [
     BrowserModule,

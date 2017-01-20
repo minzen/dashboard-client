@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../message.service';
-import MyNewsWidgetUpdate from '../../common/MyNewsWidgetUpdate';
+import MyNewsWidgetUpdate  from '../../common/MyNewsWidgetUpdate';
 
 @Component({
     selector: 'app-my-news-widget',
