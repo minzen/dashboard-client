@@ -10,15 +10,26 @@ import MyNewsWidgetUpdate from '../../common/MyNewsWidgetUpdate';
 })
 export class MyNewsWidgetComponent implements OnInit {
 
-    public model: MyNewsWidgetUpdate;
+    public model1: MyNewsWidgetUpdate = null;
+    public model2: MyNewsWidgetUpdate = null;
     connection: Subscription;
+    left: number = 0;
+    counter: number = 0;
 
     constructor(private messageService: MessageService) {
     }
 
     ngOnInit() {
         this.connection = this.messageService.observeMyNewsWidget().subscribe((message: MyNewsWidgetUpdate) => {
-            this.model = message;
+            this.left = (this.counter++ % 2) > 0 ? 800 : 0;
+            if (this.left === 0) {
+                this.model1 = message;
+                if (this.model2 == null) {
+                    this.model2 = message;
+                }
+            } else {
+                this.model2 = message;
+            }
         });
     }
 

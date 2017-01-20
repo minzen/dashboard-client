@@ -1,10 +1,24 @@
-<div class="widget-container size-1x2">
-    <span class="headline">News</span>
-    <div *ngIf="model" class="news-container">
-        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model.imagePath + ')'}"></div>
+<div class="widget-container size-1x2" style="padding: 0px;">
+    <div *ngIf="model1" class="news-container" [ngStyle]="{'left': ''+ (-left) + 'px'}">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model1.imagePath + ')'}"></div>
         <div class="news-content">
-            <h3 class="news-title">{{model.headline}}</h3>
-            <p>{{model.content}}</p>
+            <h3 class="news-title">{{model1.headline}}</h3>
+            <h4>By {{model1.author}} on {{model1.publishedAt}}</h4>
+            <br />
+            <p>{{model1.content}}</p>
+            <br />
+            <p><a href={{model2.url}}>Read more ...</a></p>
+        </div>
+    </div>
+    <div *ngIf="model2" class="news-container" [ngStyle]="{'left': ''+ (-left+800) + 'px'}">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model2.imagePath + ')'}"></div>
+        <div class="news-content">
+            <h3 class="news-title">{{model2.headline}}</h3>
+            <h4>By {{model2.author}} on {{model2.publishedAt}}</h4>
+            <br />
+            <p>{{model2.content}}</p>
+            <br />
+            <p><a href={{model2.url}}>Read more ...</a></p>
         </div>
     </div>
 </div>
