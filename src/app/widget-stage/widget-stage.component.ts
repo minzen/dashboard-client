@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-stage',
+  selector: 'widget-stage',
   templateUrl: './widget-stage.component.html',
   styleUrls: ['./widget-stage.component.scss']
 })
