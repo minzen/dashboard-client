@@ -2,12 +2,12 @@
     display: flex;
     width: 800px;
     height: 300px;
-    color: white;
-    background-color: #ff5555;
+   // color: white;
+   // background-color: #ff5555;
     position: absolute;
     top: 0px;
     left: 0px;
-    transition: left 3s;
+    transition: left 4s;
     transition-timing-function: ease-in-out;
     transform: translateZ(0);
 
@@ -25,6 +25,7 @@
 
         > .news-title {
             font-size: $fontsize-l;
+            color: #9cbe67;
         }
     }
 }

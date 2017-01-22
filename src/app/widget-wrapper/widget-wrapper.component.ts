@@ -25,6 +25,9 @@ export class WidgetWrapperComponent implements OnInit {
             case 'l':
                 this.sizeClass = 'size-1x2';
                 break;
+            case 'xl':
+                this.sizeClass = 'size-2x2';
+                break;
         }
     }
 

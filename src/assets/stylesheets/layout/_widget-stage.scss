@@ -1,8 +1,9 @@
 .widget-stage {
     display: flex;
-    margin: 0;
+    flex-wrap: wrap;
+    align-content: flex-start;
     width: 100%;
     height: 100%;
-    padding: 1rem;
-    background-color:$darkconcrete;
+    padding: 200px;
+    background-color: #101214;
 }

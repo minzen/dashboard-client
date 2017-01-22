@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { NewsWidgetComponent } from './news-widget.component';
+import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
 import { MessageService } from '../message.service';
 
 describe('NewsWidgetComponent', () => {
@@ -12,7 +13,7 @@ describe('NewsWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsWidgetComponent ],
+      declarations: [ NewsWidgetComponent, WidgetWrapperComponent ],
       providers: [ MessageService ]
     })
     .compileComponents();

@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {WeatherWidgetComponent} from './weather-widget.component';
+import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
+
 import {MessageService} from '../message.service';
 
 describe('WeatherWidgetComponent', () => {
@@ -9,7 +11,7 @@ describe('WeatherWidgetComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [WeatherWidgetComponent],
+            declarations: [WeatherWidgetComponent,WidgetWrapperComponent],
             providers: [MessageService]
         })
             .compileComponents();
