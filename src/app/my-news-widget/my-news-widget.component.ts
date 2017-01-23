@@ -22,7 +22,7 @@ export class MyNewsWidgetComponent implements OnInit {
     ngOnInit() {
         // http://stackoverflow.com/questions/39656370/angular-2-preload-background-image
         this.connection = this.messageService.observeMyNewsWidget().subscribe((message: MyNewsWidgetUpdate) => {
-            let left: number = (this.counter++ % 2) > 0 ? 800 : 0;
+            let left: number = (this.counter++ % 2) > 0 ? 710 : 0;
             if (left === 0) {
                 this.model1 = message;
                 if (this.model2 == null) {

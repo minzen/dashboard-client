@@ -1,7 +1,7 @@
 .news-container {
     display: flex;
-    width: 800px;
-    height: 300px;
+    width: 710px;
+    height: 230px;
    // color: white;
    // background-color: #ff5555;
     position: absolute;
@@ -12,20 +12,22 @@
     transform: translateZ(0);
 
     > .news-thumb {
-        width: 300px;
-        height: 300px;
+        width: 230px;
+        height: 230px;
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     > .news-content {
-        width: 500px;
-        margin: 8px;
+        width: 480px;
+        padding: 10px;
+        text-align: justify;
 
         > .news-title {
             font-size: $fontsize-l;
             color: #9cbe67;
+            text-align: left;
         }
     }
 }
