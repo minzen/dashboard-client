@@ -55,8 +55,11 @@ class MyNewsWidget extends Dashboard.AbstractWidget {
         let content: string = this.response.articles[index].description;
         let imagePath: string = this.response.articles[index].urlToImage;
         let headline: string = this.response.articles[index].title;
+        let author: string = this.response.articles[index].author;
+        let publishedAt: string = this.response.articles[index].publishedAt;
+        let url: string = this.response.articles[index].url;
 
-        this.setModel(new MyNewsWidgetUpdate(headline, content, imagePath));
+        this.setModel(new MyNewsWidgetUpdate(headline, author, publishedAt, content, imagePath, url));
     }
 
     private setModel(model: MyNewsWidgetUpdate): void {

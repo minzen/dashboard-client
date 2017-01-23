@@ -11,26 +11,28 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 import { WidgetStageComponent } from './widget-stage/widget-stage.component';
+import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TimeWidgetComponent,
-    NewsWidgetComponent,
-    WeatherWidgetComponent,
-    MyNewsWidgetComponent,
-    HeaderComponent,
-    WidgetStageComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [
-      { provide: LOCALE_ID, useValue: 'de' },
-    MessageService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        WidgetWrapperComponent,
+        TimeWidgetComponent,
+        NewsWidgetComponent,
+        WeatherWidgetComponent,
+        MyNewsWidgetComponent,
+        HeaderComponent,
+        WidgetStageComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule
+    ],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'de' },
+        MessageService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

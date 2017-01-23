@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MessageService } from '../message.service';
 import { MyNewsWidgetComponent } from './my-news-widget.component';
+import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
 
 describe('MyNewsWidgetComponent', () => {
     let component: MyNewsWidgetComponent;
@@ -11,10 +12,9 @@ describe('MyNewsWidgetComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MyNewsWidgetComponent],
+            declarations: [MyNewsWidgetComponent, WidgetWrapperComponent],
             providers: [MessageService]
-        })
-            .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

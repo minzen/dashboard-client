@@ -1,5 +1,4 @@
-<div class="widget-container size-1x1">
-    <span class="headline">Wetter</span>
+<app-widget-wrapper title="Wetter" size="xl">
     <div *ngIf="data" class="widget">
         <div class="weather-overview">
             <div><i class="wi {{data.iconClass}} icon-xxl"></i></div>
@@ -32,5 +31,7 @@
             </div>
         </div>
     </div>
-</div>
+</app-widget-wrapper>
+
+
 

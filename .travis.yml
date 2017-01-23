@@ -3,8 +3,6 @@ dist: trusty
 language: node_js
 node_js:
   - 'stable'
-
-addons:
 apt:
   sources:
     - google-chrome

@@ -9,6 +9,7 @@ import { WidgetStageComponent } from './widget-stage.component';
 import { NewsWidgetComponent } from '../news-widget/news-widget.component';
 import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from '../my-news-widget/my-news-widget.component';
+import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
 import { MessageService } from '../message.service';
 
 describe('WidgetStageComponent', () => {
@@ -21,7 +22,8 @@ describe('WidgetStageComponent', () => {
           WidgetStageComponent,
           NewsWidgetComponent,
           WeatherWidgetComponent,
-          MyNewsWidgetComponent
+          MyNewsWidgetComponent,
+          WidgetWrapperComponent
       ],
       providers: [ MessageService ]
     })

@@ -1,10 +1,20 @@
-<div class="widget-container size-1x2">
-    <span class="headline">News</span>
-    <div *ngIf="model" class="news-container">
-        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model.imagePath + ')'}"></div>
+<app-widget-wrapper size="l">
+    <div *ngIf="model1" class="news-container" [ngStyle]="{'left': ''+ (-left) + 'px'}">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model1.imagePath + ')'}"></div>
         <div class="news-content">
-            <h3 class="news-title">{{model.headline}}</h3>
-            <p>{{model.content}}</p>
+            <h3 class="news-title">{{model1.headline}}</h3>
+            <p><i>{{model1.publishedAt | date:'yMMMdjms'}}</i></p>
+            <br />
+            <p>{{model1.content}}</p>
         </div>
     </div>
-</div>
+    <div *ngIf="model2" class="news-container" [ngStyle]="{'left': ''+ (-left+710) + 'px'}">
+        <div class="news-thumb" [ngStyle]="{'background-image': 'url(' + model2.imagePath + ')'}"></div>
+        <div class="news-content">
+            <h3 class="news-title">{{model2.headline}}</h3>
+            <p><i>{{model2.publishedAt | date:'yMMMdjms'}}</i></p>
+            <br />
+            <p>{{model2.content}}</p>
+        </div>
+    </div>
+</app-widget-wrapper>
