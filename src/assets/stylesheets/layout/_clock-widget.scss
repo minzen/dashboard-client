@@ -1,0 +1,19 @@
+.clock-container {
+    display: flex;
+    justify-content:  flex-end ;
+    flex-direction: column;
+    height: 100%;
+}
+
+.clock-time {
+    font-family: $font-family;
+    font-size: $fontsize-xxxl;
+    text-align: center;
+    color: #3fb4f9;
+}
+
+.clock-date {
+    font-family: $font-family;
+    font-size: $fontsize-l;
+    text-align: left;
+}

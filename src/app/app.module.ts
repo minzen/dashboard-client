@@ -12,6 +12,7 @@ import { WeatherWidgetComponent } from './weather-widget/weather-widget.componen
 import { MyNewsWidgetComponent } from './my-news-widget/my-news-widget.component';
 import { WidgetStageComponent } from './widget-stage/widget-stage.component';
 import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.component';
+import { ClockWidgetComponent } from './clock-widget/clock-widget.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.componen
         WeatherWidgetComponent,
         MyNewsWidgetComponent,
         HeaderComponent,
-        WidgetStageComponent
+        WidgetStageComponent,
+        ClockWidgetComponent
     ],
     imports: [
         BrowserModule,
