@@ -10,6 +10,7 @@ import { NewsWidgetComponent } from '../news-widget/news-widget.component';
 import { WeatherWidgetComponent } from '../weather-widget/weather-widget.component';
 import { MyNewsWidgetComponent } from '../my-news-widget/my-news-widget.component';
 import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
+import { ClockWidgetComponent } from '../clock-widget/clock-widget.component';
 import { MessageService } from '../message.service';
 
 describe('WidgetStageComponent', () => {
@@ -21,6 +22,7 @@ describe('WidgetStageComponent', () => {
       declarations: [
           WidgetStageComponent,
           NewsWidgetComponent,
+          ClockWidgetComponent,
           WeatherWidgetComponent,
           MyNewsWidgetComponent,
           WidgetWrapperComponent
