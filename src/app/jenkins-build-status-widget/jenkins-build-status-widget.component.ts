@@ -19,7 +19,9 @@ export class JenkinsBuildStatusWidgetComponent implements OnInit {
     ngOnInit() {
         this.message = new JenkinsBuildStatusWidgetUpdate('Backend Build Status', 'SUCCESS', 111122 * 6, new Date().getTime());
         this.connection = this.messageService.observeJenkinsBuildStatusWidget().subscribe((message: JenkinsBuildStatusWidgetUpdate) => {
-            this.message = message;
+            if (message) {
+                this.message = message;
+            }
         });
     }
 
