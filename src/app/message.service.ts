@@ -5,6 +5,7 @@ import ClockWidgetUpdate from '../common/ClockWidgetUpdate';
 import NewsWidgetUpdate from '../common/NewsWidgetUpdate';
 import WeatherWidgetUpdate from '../common/WeatherWidgetUpdate';
 import MyNewsWidgetUpdate from '../common/MyNewsWidgetUpdate';
+import JenkinsBuildStatusWidgetUpdate from '../common/JenkinsBuildStatusWidgetUpdate';
 
 @Injectable()
 export class MessageService {
@@ -33,6 +34,10 @@ export class MessageService {
 
     public observeMyNewsWidget(): Observable<MyNewsWidgetUpdate> {
         return this.observeEvent<MyNewsWidgetUpdate>('headlines');
+    }
+
+        public observeJenkinsBuildStatusWidget(): Observable<JenkinsBuildStatusWidgetUpdate> {
+        return this.observeEvent<JenkinsBuildStatusWidgetUpdate>('jenkinsbuildstatus');
     }
 
     public observeEvent<T>(eventName: string): Observable<T> {
