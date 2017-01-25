@@ -1,5 +1,5 @@
 /**
- * GreetingsWidget
+ * JenkinsBuildStatusWidget
  *
  * @author Johannes Diemke <johannes.diemke@eventim.de>
  * @since 0.0.1
@@ -20,16 +20,14 @@ class JenkinsBuildStatusWidget extends Dashboard.AbstractWidget {
     private update: JenkinsBuildStatusWidgetUpdate;
 
     public onUpdate(): void {
-
         this.getNewsUpdate()
             .then((response) => {
                 let estimatedDuration: number = response.estimatedDuration;
                 let result: string = response.result;
                 let timestamp: number = response.timestamp;
                 this.update = new JenkinsBuildStatusWidgetUpdate(this.getConfiguration().caption, result, estimatedDuration, timestamp);
+                this.updateView();
             });
-
-        this.updateView();
     }
 
     public onInit(): void {
