@@ -11,7 +11,9 @@ import { WeatherWidgetComponent } from '../weather-widget/weather-widget.compone
 import { MyNewsWidgetComponent } from '../my-news-widget/my-news-widget.component';
 import { WidgetWrapperComponent } from '../widget-wrapper/widget-wrapper.component';
 import { ClockWidgetComponent } from '../clock-widget/clock-widget.component';
+import { JenkinsBuildStatusWidgetComponent } from '../jenkins-build-status-widget/jenkins-build-status-widget.component';
 import { MessageService } from '../message.service';
+import { MomentModule } from 'angular2-moment';
 
 describe('WidgetStageComponent', () => {
   let component: WidgetStageComponent;
@@ -25,9 +27,11 @@ describe('WidgetStageComponent', () => {
           ClockWidgetComponent,
           WeatherWidgetComponent,
           MyNewsWidgetComponent,
-          WidgetWrapperComponent
+          WidgetWrapperComponent,
+          JenkinsBuildStatusWidgetComponent,
       ],
-      providers: [ MessageService ]
+      providers: [ MessageService ],
+      imports: [ MomentModule]
     })
     .compileComponents();
   }));

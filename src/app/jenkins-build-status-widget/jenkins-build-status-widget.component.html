@@ -1,0 +1,7 @@
+<app-widget-wrapper [title]="message.caption" size="xl">
+    <div *ngIf="message">
+        <p style="font-size: 86px;text-align: center; font-weight: bold; color: mediumspringgreen;">{{message.result}}</p>
+        <p>Estimated build duration is {{message.estimatedDuration | amDuration:'milliseconds'}}.</p>
+        <p>Last build {{message.timestamp | amCalendar}}.</p>
+    </div>
+</app-widget-wrapper>

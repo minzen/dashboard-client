@@ -10,6 +10,8 @@ import { MessageService } from './message.service';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.component';
 import { ClockWidgetComponent } from './clock-widget/clock-widget.component';
+import { JenkinsBuildStatusWidgetComponent } from './jenkins-build-status-widget/jenkins-build-status-widget.component';
+import { MomentModule } from 'angular2-moment';
 
 describe('AppComponent', () => {
     beforeEach(() => {
@@ -23,11 +25,13 @@ describe('AppComponent', () => {
                 WeatherWidgetComponent,
                 MyNewsWidgetComponent,
                 ClockWidgetComponent,
-                WidgetWrapperComponent
+                WidgetWrapperComponent,
+                JenkinsBuildStatusWidgetComponent
             ],
             providers: [
                 MessageService
-            ]
+            ],
+        imports: [MomentModule]
         });
         TestBed.compileComponents();
     });

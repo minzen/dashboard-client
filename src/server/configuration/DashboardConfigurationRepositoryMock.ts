@@ -40,7 +40,15 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
         myNewsWidgetConfig.setConfiguration({
             apiKey: '1262e2f6806440bb84135a7bdb2580f5',
             source: 'google-news',
-            sortBy: 'top',
+            sortBy: 'top'
+        });
+
+        let jenkingsBuildStatusWidgetConfig: WidgetConfiguration = new WidgetConfiguration();
+        jenkingsBuildStatusWidgetConfig.setType('jenkinsbuildstatus');
+        jenkingsBuildStatusWidgetConfig.setConfiguration({
+            server: 'https://build-staging-jenkins.eventim.net',
+            jobName: 'BUILD_Eventim-WEB_only',
+            caption: 'Backend Trunk Build Status'
         });
 
         let dashboardConfig: DashboardConfiguration = new DashboardConfiguration();
@@ -49,6 +57,7 @@ export default class DashboardConfigurationRepositoryMock implements DashboardCo
         dashboardConfig.addWidgetConfiguration(clockWidgetConfig);
         dashboardConfig.addWidgetConfiguration(weatherWidgetConfig);
         dashboardConfig.addWidgetConfiguration(myNewsWidgetConfig);
+        dashboardConfig.addWidgetConfiguration(jenkingsBuildStatusWidgetConfig);
 
         return dashboardConfig;
     }
